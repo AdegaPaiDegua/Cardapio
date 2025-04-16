@@ -35,6 +35,15 @@
       opacity: 1;
       transform: translateY(0);
     }
+    @keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
   </style>
 </head>
 <body class="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen px-4 py-6">
@@ -108,22 +117,31 @@
     </div>
   </div>
 
-  <div id="modal-nome" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-md">
-      <h2 class="text-2xl font-bold mb-4 text-center">Finalizar pedido</h2>
+  <div id="modal-nome" class="modal hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center px-4">
+    <div class="bg-white text-black p-6 rounded-2xl shadow-2xl w-full max-w-md animate-fade-in space-y-5">
+      <h2 class="text-3xl font-bold text-center text-amber-600">Finalizar Pedido</h2>
   
-      <label for="nome-cliente" class="block mb-1 font-semibold">Nome:</label>
-      <input id="nome-cliente" type="text" class="w-full p-2 mb-4 border border-gray-300 rounded-lg bg-white text-black" placeholder="Digite seu nome" />
+      <div class="space-y-2">
+        <label for="nome-cliente" class="text-sm font-semibold">Nome</label>
+        <input id="nome-cliente" type="text" placeholder="Digite seu nome completo"
+          class="w-full p-3 rounded-xl border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-amber-600" />
+      </div>
   
-      <label for="endereco-cliente" class="block mb-1 font-semibold">Endereço:</label>
-      <input id="endereco-cliente" type="text" class="w-full p-2 mb-4 border border-gray-300 rounded-lg bg-white text-black" placeholder="Digite seu endereço completo" />
+      <div class="space-y-2">
+        <label for="endereco-cliente" class="text-sm font-semibold">Endereço</label>
+        <input id="endereco-cliente" type="text" placeholder="Digite seu endereço completo"
+          class="w-full p-3 rounded-xl border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-amber-600" />
+      </div>
   
-      <div class="flex justify-between gap-2">
-        <button onclick="fecharModalNome()" class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400 transition">Voltar</button>
-        <button id="btn-enviar-pedido" onclick="finalizarPedido()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Enviar pedido</button>
+      <div class="flex justify-between gap-3 pt-4">
+        <button onclick="fecharModalNome()"
+          class="w-1/2 bg-gray-300 text-black font-bold py-2 rounded-xl hover:bg-gray-400 transition">Voltar</button>
+        <button onclick="finalizarPedido()"
+          class="w-1/2 bg-green-600 text-white font-bold py-2 rounded-xl hover:bg-green-700 transition">Enviar Pedido</button>
       </div>
     </div>
   </div>
+  
   
 
   <script>

@@ -128,10 +128,10 @@
 
   <script>
     const cervejas = [
-      { nome: "Heineken", preco: 5.00, descricao: "lata e longneck", imagem: "https://th.bing.com/th/id/OIP.gLGHPrgQbovtQU4wXE6hYwHaHa?rs=1&pid=ImgDetMain" },
+      { nome: "Heineken", preco: 5.00, descricao: "lata", imagem: "https://th.bing.com/th/id/OIP.gLGHPrgQbovtQU4wXE6hYwHaHa?rs=1&pid=ImgDetMain" },
       { nome: "Budweiser", preco: 4.50, descricao: "lata", imagem: "https://down-br.img.susercontent.com/file/6cf56f35c9005d4f45ced45db0c30edb" },
       { nome: "itaipava", preco: 3.50, descricao: "lata", imagem: "https://phygital-files.mercafacil.com/bom-lugar/uploads/produto/cerveja_itaipava_pilsen_lata_350ml_39322ea1-7219-4bea-9ab6-7056b2fb940b.jpg" },
-      { nome: "Império", preco: 4.00, imagem: "https://tfchgi.vteximg.com.br/arquivos/ids/171586-1000-1000/7898915949209.jpg?v=637783886469700000" },
+      { nome: "Império", preco: 4.00, descricao: "lata", imagem: "https://tfchgi.vteximg.com.br/arquivos/ids/171586-1000-1000/7898915949209.jpg?v=637783886469700000" },
       { nome: "Original", preco: 4.50, descricao: "lata", imagem: "https://coopsp.vtexassets.com/arquivos/ids/232285-800-800?v=638158831793470000&width=800&height=800&aspect=true" },
       { nome: "Brahma Duplo Malte", preco: 5.00, descricao: "lata", imagem: "https://lelecodelivery.com.br/wp-content/uploads/2020/10/BRAHMA-DUPLO-MALTE-1024x1024.png" },
       { nome: "Skol", preco: 4.00, descricao: "lata", imagem: "https://armazemseuluiz.com.br/storage/app/uploads/public/637/bc8/624/637bc8624b183689503712" },
@@ -141,7 +141,7 @@
     ];
 
     const caixas = [
-      { nome: "Caixa Heineken", preco: 35.00, descricao: "lata e longneck", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-BpZjvyKcEQZqVhORefgHg7sPUUjcqNg_JQ&s" },
+      { nome: "Caixa Heineken", preco: 35.00, descricao: "lata", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-BpZjvyKcEQZqVhORefgHg7sPUUjcqNg_JQ&s" },
       { nome: "Caixa Budweiser", preco: 32.00, descricao: "caixa", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbmMWVZa-NZ6I1FqbP0dcRJCuq1h-rDljUDQ&s" },
       { nome: "Caixa Império", preco: 45.00, descricao: "caixa", imagem: "https://covabra.vtexassets.com/arquivos/ids/215103-800-450?v=638308159339330000&width=800&height=450&aspect=true" },
       { nome: "Caixa Original", preco: 32.00, descricao: "caixa", imagem: "https://static.paodeacucar.com/img/uploads/1/133/23981133.jpg?im=Resize,width=200" },
@@ -153,24 +153,24 @@
     ];
 
     const whiskys = [
-      { nome: "Red Label", preco: 110.00, imagem: "https://i5.walmartimages.com/asr/70d063f5-8328-44b2-91ee-9eec40f5908c_2.53a1ae92e78bba8bafae76f4d204b660.jpeg" },
-      { nome: "Jack Daniel's", preco: 170.00, imagem: "https://imagevault.skulibrary.com/ColesLiquor/NoPrefix/e2520ee2b408c79be0916bdd062e372f1423c031/images/2400/id/CLG-8331431-1.jpg" },
-      { nome: "Jack Daniel's Fire", preco: 170.00, imagem: "https://cdn.myshoptet.com/usr/www.bumbaj.sk/user/shop/big/519_jack-daniel-s-fire-35--0-70-l.jpg?6362878e" },
-      { nome: "Jack Daniel's Honey", preco: 130.00, imagem: "https://www.casadabebida.com.br/img/products/4277/000.webp" },
+      { nome: "Red Label 1l", preco: 110.00, descricao: "destilados", imagem: "https://i5.walmartimages.com/asr/70d063f5-8328-44b2-91ee-9eec40f5908c_2.53a1ae92e78bba8bafae76f4d204b660.jpeg" },
+      { nome: "Jack Daniel's 1l", preco: 170.00, descricao: "destilados", imagem: "https://imagevault.skulibrary.com/ColesLiquor/NoPrefix/e2520ee2b408c79be0916bdd062e372f1423c031/images/2400/id/CLG-8331431-1.jpg" },
+      { nome: "Jack Daniel's Fire 1l", preco: 170.00, descricao: "destilados", imagem: "https://cdn.myshoptet.com/usr/www.bumbaj.sk/user/shop/big/519_jack-daniel-s-fire-35--0-70-l.jpg?6362878e" },
+      { nome: "Jack Daniel's Honey 700ml", preco: 130.00, descricao: "destilados", imagem: "https://www.casadabebida.com.br/img/products/4277/000.webp" },
     ];
 
 
     const cachaças = [
-    { nome: "Kariri", preco: 21.00, imagem: "https://a-static.mlcdn.com.br/800x560/cachaca-kariri-com-k-ouro-960ml/lojamegaadegakanguru/58808/1a65b5b3a20645039770b3618c58abaf.jpeg" },
-    { nome: "51", preco: 16.00, imagem: "https://th.bing.com/th/id/OIP.fXxl1bXRfFe5mBvlfe8OHgHaHa?rs=1&pid=ImgDetMain" },
-    { nome: "Pitu", preco: 7.00, imagem: "https://armazemnordestino.com.br/wp-content/uploads/2023/03/Lata-pitu.jpg" },
-    { nome: "Dreher", preco: 23.00, imagem: "https://th.bing.com/th/id/OIP.5VQoPaa8pU-60wwDUGYMpQHaKe?rs=1&pid=ImgDetMain" },
-    { nome: "Contine", preco: 37.00, imagem: "https://a-static.mlcdn.com.br/1500x1500/vermouth-contini-bianco-900ml/rbbebidasdistribuidora/217p/2c856567ad2439a849f7442a9fed5577.jpeg" },
+    { nome: "Kariri", preco: 21.00, descricao: "destilados", imagem: "https://a-static.mlcdn.com.br/800x560/cachaca-kariri-com-k-ouro-960ml/lojamegaadegakanguru/58808/1a65b5b3a20645039770b3618c58abaf.jpeg" },
+    { nome: "51", preco: 16.00, descricao: "destilados", imagem: "https://th.bing.com/th/id/OIP.fXxl1bXRfFe5mBvlfe8OHgHaHa?rs=1&pid=ImgDetMain" },
+    { nome: "Pitu", preco: 7.00, descricao: "destilados", imagem: "https://armazemnordestino.com.br/wp-content/uploads/2023/03/Lata-pitu.jpg" },
+    { nome: "Dreher", preco: 23.00, descricao: "destilados", imagem: "https://th.bing.com/th/id/OIP.5VQoPaa8pU-60wwDUGYMpQHaKe?rs=1&pid=ImgDetMain" },
+    { nome: "Contine", preco: 37.00, descricao: "destilados", imagem: "https://a-static.mlcdn.com.br/1500x1500/vermouth-contini-bianco-900ml/rbbebidasdistribuidora/217p/2c856567ad2439a849f7442a9fed5577.jpeg" },
   ];
 
   const vodkas = [
-    { nome: "Aakov", preco: 21.00, imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1LIPSSEm-Qw1vhIM3vGxVHHKSK_3e5g2ppw&s" },
-    { nome: "Vodka Smirnoff", preco: 16.00, imagem: "https://mfresh.s3.amazonaws.com/uploads/product/sku/3538/image/dc63d991-7ccb-4108-b95c-8c547ad85a33.jpeg" },
+    { nome: "Askov", preco: 21.00, descricao: "destilados", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1LIPSSEm-Qw1vhIM3vGxVHHKSK_3e5g2ppw&s" },
+    { nome: "Vodka Smirnoff", descricao: "destilados", preco: 39.00, imagem: "https://mfresh.s3.amazonaws.com/uploads/product/sku/3538/image/dc63d991-7ccb-4108-b95c-8c547ad85a33.jpeg" },
   ];
   
   const energeticos = [
@@ -180,11 +180,11 @@
  ];
 
     const gins = [
-      { nome: "Eternity Morango", preco: 25.00, imagem: "https://bebidasfamosas.vtexassets.com/arquivos/ids/161573/Gin-Eternity-Strawberry-900ml.jpg?v=638514746107800000" },
-      { nome: "Eternity Maçã Verde", preco: 25.00, imagem: "https://bebidasfamosas.vtexassets.com/arquivos/ids/161572/Gin-Eternity-Maca-Verde-900ml.jpg?v=638514742696530000  " },
-      { nome: "Eternity Melancia", preco: 25.00, imagem: "https://th.bing.com/th/id/OIP.65UuUchhCVT8-w4ldjxCKAHaHa?rs=1&pid=ImgDetMain" },
-      { nome: "Eternity Tropical", preco: 25.00, imagem: "https://www.imigrantesbebidas.com.br/img/bebida/images/products/full/19543-gin-eternity-tropical-fruits-900ml.20240626131948.jpg?p=product_regular&s=c715ec724cb701a0e7ef8517e5e62a34" },
-      { nome: "Eternity Pêssego e Framboesa", preco: 25.00, imagem: "https://a-static.mlcdn.com.br/1500x1500/gin-eternity-pessego-e-framboesa-900ml/royalbebidasonline/21572/84455031705a9ab383542caba1ee0128.jpeg" },
+      { nome: "Eternity Morango", preco: 25.00, descricao: "destilados", imagem: "https://bebidasfamosas.vtexassets.com/arquivos/ids/161573/Gin-Eternity-Strawberry-900ml.jpg?v=638514746107800000" },
+      { nome: "Eternity Maçã Verde", preco: 25.00, descricao: "destilados", imagem: "https://bebidasfamosas.vtexassets.com/arquivos/ids/161572/Gin-Eternity-Maca-Verde-900ml.jpg?v=638514742696530000  " },
+      { nome: "Eternity Melancia", preco: 25.00, descricao: "destilados", imagem: "https://th.bing.com/th/id/OIP.65UuUchhCVT8-w4ldjxCKAHaHa?rs=1&pid=ImgDetMain" },
+      { nome: "Eternity Tropical", preco: 25.00, descricao: "destilados", imagem: "https://www.imigrantesbebidas.com.br/img/bebida/images/products/full/19543-gin-eternity-tropical-fruits-900ml.20240626131948.jpg?p=product_regular&s=c715ec724cb701a0e7ef8517e5e62a34" },
+      { nome: "Eternity Pêssego e Framboesa", preco: 25.00, descricao: "destilados", imagem: "https://a-static.mlcdn.com.br/1500x1500/gin-eternity-pessego-e-framboesa-900ml/royalbebidasonline/21572/84455031705a9ab383542caba1ee0128.jpeg" },
     ];
 
     const refrigerantes = [
@@ -212,10 +212,11 @@
       { nome: "Dose Jack Daniels Com Red Bull", preco: 40.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
       { nome: "Dose Gin Rocks", preco: 15.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
       { nome: "Dose Tanqueray Com Red Bull", preco: 35.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
-      { nome: "Dose Quente", preco: 25.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
-      { nome: "Dose Smirnoff Red Bull", preco: 20.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
+      { nome: "Dose Quente", preco: 5.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
+      { nome: "Dose Smirnoff Red Bull", preco: 25.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
       { nome: "Dose Malibu", preco: 20.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
       { nome: "Dose Eternity", preco: 12.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
+      { nome: "Dose Kariri", preco: 20.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
     ];
 
     const Salgadinhos = [

@@ -148,6 +148,12 @@
           class="w-full p-3 rounded-xl border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-amber-600" />
       </div>
   
+      <div class="space-y-2">
+        <label for="forma-pagamento" class="text-sm font-semibold">Pagamento</label>
+        <input id="forma-pagamento" type="text" placeholder="Digite a Forma de Pagamento"
+          class="w-full p-3 rounded-xl border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-amber-600" />
+      </div>
+
       <div class="flex justify-between gap-3 pt-4">
         <button onclick="fecharModalNome()"
           class="w-1/2 bg-gray-300 text-black font-bold py-2 rounded-xl hover:bg-gray-400 transition">Voltar</button>
@@ -362,7 +368,7 @@
               <div id="${observacaoId}" class="observacao-input hidden">
                 <input type="text" 
                        value="${item.observacao || ''}" 
-                       placeholder="Ex: Sem gelo, mais gelo, etc." 
+                       placeholder="Ex: sabor tropical, gelo maracuja, etc." 
                        class="w-full p-2 border rounded text-sm"
                        onchange="salvarObservacao(${i}, this.value)">
               </div>
@@ -430,9 +436,10 @@
     function finalizarPedido() {
       const nome = document.getElementById("nome-cliente").value.trim();
       const endereco = document.getElementById("endereco-cliente").value.trim();
+      const formap = document.getElementById("forma-pagamento").value.trim();
 
-      if (!nome || !endereco) {
-        alert("Por favor, preencha seu nome e endereço.");
+      if (!nome || !endereco || !formap) {
+        alert("Por favor, preencha seu nome, endereço e forma de pagamento.");
         return;
       }
 
@@ -451,6 +458,7 @@
       const total = carrinho.reduce((acc, item) => acc + item.preco * item.qtd, 0);
       mensagem += `\nTotal: R$ ${total.toFixed(2)}\n`;
       mensagem += `\nEndereço para entrega: ${endereco}`;
+      mensagem += `\nForma de Pagamento: ${formap}`;
 
       const url = `https://wa.me/5511914042925?text=${encodeURIComponent(mensagem)}`;
       window.open(url, "_blank");

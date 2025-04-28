@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Adega Pai D'égua</title>
-    <link rel="icon" href="logo.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="logo.ico">
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="logo.ico">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
@@ -36,14 +36,22 @@
       transform: translateY(0);
     }
     @keyframes fade-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.3s ease-out;
-}
-
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 0.3s ease-out;
+    }
+    .observacao-toggle {
+      font-size: 0.8rem;
+      color: #3b82f6;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .observacao-input {
+      margin-top: 0.5rem;
+      width: 100%;
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen px-4 py-6">
@@ -58,53 +66,57 @@
     <div id="toast" class="toast">Item adicionado ao carrinho!</div>
 
     <div>
-      <h2 class="text-2xl font-bold mb-4 text-amber-600">Cervejas</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="cervejas"></div>
+        <h2 class="text-2xl font-bold mb-4 text-amber-600">Cervejas</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="cervejas"></div>
+        
+        <h2 class="text-2xl font-bold mb-4 text-amber-600">longneck</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="longneck"></div>
 
-      <h2 class="text-2xl font-bold mb-4 text-amber-600">Caixas</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="caixas"></div>
+        <h2 class="text-2xl font-bold mb-4 text-amber-600">Caixas</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="caixas"></div>
+  
+        <h2 class="text-2xl font-bold mb-4 text-amber-600">Whisky</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="whiskys"></div>
+  
+        <h2 class="text-2xl font-bold mb-4 text-amber-600">Combos</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="combos"></div>
+  
+        <h2 class="text-2xl font-bold mb-4 text-amber-600">Gin</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="gins"></div>
+  
+        <h2 class="text-2xl font-bold mb-4 text-amber-600">Cachaças</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="cachaças"></div>
+  
+        <h2 class="text-2xl font-bold mb-4 text-amber-600">Vodkas</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="vodkas"></div>
+  
+        <h2 class="text-2xl font-bold mb-4 text-amber-600">Doses</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="doses"></div>
+  
+        <h2 class="text-2xl font-bold mb-4 text-amber-600">Gelos</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="gelos"></div>
+  
+        <h2 class="text-2xl font-bold mb-4 text-amber-600">Refrigerantes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="refrigerantes"></div>
+  
+        <h2 class="text-2xl font-bold mb-4 text-amber-600">Energeticos</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="energeticos"></div>
+  
+        <h2 class="text-2xl font-bold mb-4 text-amber-600">Tabacaria</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="tabacaria"></div>
+  
+        <h2 class="text-2xl font-bold mb-4 text-amber-600">Salgadinhos</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="salgadinhos"></div>
 
-      <h2 class="text-2xl font-bold mb-4 text-amber-600">Whisky</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="whiskys"></div>
-
-      <h2 class="text-2xl font-bold mb-4 text-amber-600">Combos</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="combos"></div>
-
-      <h2 class="text-2xl font-bold mb-4 text-amber-600">Gin</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="gins"></div>
-
-      <h2 class="text-2xl font-bold mb-4 text-amber-600">Cachaças</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="cachaças"></div>
-
-      <h2 class="text-2xl font-bold mb-4 text-amber-600">Vodkas</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="vodkas"></div>
-
-      <h2 class="text-2xl font-bold mb-4 text-amber-600">Doses</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="doses"></div>
-
-      <h2 class="text-2xl font-bold mb-4 text-amber-600">Gelos</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="gelos"></div>
-
-      <h2 class="text-2xl font-bold mb-4 text-amber-600">Refrigerantes</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="refrigerantes"></div>
-
-      <h2 class="text-2xl font-bold mb-4 text-amber-600">Energeticos</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="energeticos"></div>
-
-      <h2 class="text-2xl font-bold mb-4 text-amber-600">Tabacaria</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="tabacaria"></div>
-
-      <h2 class="text-2xl font-bold mb-4 text-amber-600">Salgadinhos</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="salgadinhos"></div>
-
-    </div>
+  
+      </div>
   </div>
 
-  <!-- Modal do carrinho -->
-  <div id="modal-carrinho" class="fixed inset-0 bg-black/80 hidden z-40 flex items-center justify-center">
-    <div class="bg-white text-black p-6 rounded-xl w-full max-w-lg shadow-xl relative">
+  <!-- Modal do carrinho atualizado -->
+  <div id="modal-carrinho" class="fixed inset-0 bg-black/80 hidden z-40 flex items-center justify-center p-4">
+    <div class="bg-white text-black p-6 rounded-xl w-full max-w-lg shadow-xl relative max-h-[90vh] overflow-y-auto">
       <h2 class="text-2xl font-bold mb-4">Seu Carrinho</h2>
-      <ul id="lista-carrinho" class="mb-4 space-y-2 max-h-60 overflow-y-auto"></ul>
+      <ul id="lista-carrinho" class="mb-4 space-y-4"></ul>
       <div class="flex justify-between items-center font-semibold text-lg mb-4">
         <span>Total:</span>
         <span id="total-carrinho">R$ 0,00</span>
@@ -116,6 +128,9 @@
       <button onclick="fecharCarrinho()" class="absolute top-2 right-4 text-black font-bold text-xl">&times;</button>
     </div>
   </div>
+
+  <!-- Modal de nome/endereço permanece o mesmo -->
+  <!-- ... -->
 
   <div id="modal-nome" class="modal hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center px-4">
     <div class="bg-white text-black p-6 rounded-2xl shadow-2xl w-full max-w-md animate-fade-in space-y-5">
@@ -157,6 +172,7 @@
       { nome: "Estrella Galicia", preco: 9.00, descricao: "lata", imagem: "https://statics.angeloni.com.br/super/files/produtos/3999454/3999454_1_zoom.jpg" },
       { nome: "Spaten", preco: 5.00, descricao: "lata", imagem: "https://th.bing.com/th/id/OIP.zr9UqRQG88fka5u9w8wa4QHaHa?rs=1&pid=ImgDetMain" },
     ];
+
 
     const caixas = [
       { nome: "Caixa Heineken", preco: 35.00, descricao: "lata", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-BpZjvyKcEQZqVhORefgHg7sPUUjcqNg_JQ&s" },
@@ -263,6 +279,13 @@
       { nome: "Gelo de Coco", preco: 3.50, imagem: "https://covabra.vtexassets.com/arquivos/ids/179659-800-450?v=638107808628700000&width=800&height=450&aspect=true" },
     ];
 
+    const longneck= [
+      { nome: "Heineken", preco: 10.00, descricao: "long", imagem: "https://www.imigrantesbebidas.com.br/bebida/images/products/full/222-cerveja-heineken-long-neck-330ml.jpg" },
+      { nome: "Corona", preco: 10.00, descricao: "long", imagem: "https://t3.ftcdn.net/jpg/03/17/49/16/360_F_317491690_r9vvpVqgOeuuvjQWDReJwOxGTYJWGPdy.jpg" },
+      { nome: "Estrella Galicia", preco: 10.00, descricao: "long", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Px6SHQLIlOwnn-4-kTlJBFN8TmUgZFXgfA&s" },
+    ];
+
+
     const contadorCarrinho = document.getElementById("contador-carrinho");
     const listaCarrinho = document.getElementById("lista-carrinho");
     const totalCarrinho = document.getElementById("total-carrinho");
@@ -292,7 +315,7 @@
       if (existente) {
         existente.qtd++;
       } else {
-        carrinho.push({ nome, preco, qtd: 1 });
+        carrinho.push({ nome, preco, qtd: 1, observacao: "" });
       }
       localStorage.setItem("carrinho", JSON.stringify(carrinho));
       atualizarContador();
@@ -309,23 +332,64 @@
       let carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
       listaCarrinho.innerHTML = "";
       let total = 0;
+      
       carrinho.forEach((item, i) => {
         total += item.preco * item.qtd;
+        
+        const observacaoId = `observacao-${i}`;
+        const temObservacao = item.observacao && item.observacao.trim() !== "";
+        
         listaCarrinho.innerHTML += `
-          <li class="flex justify-between items-center">
-            <span class="w-1/2">${item.nome}</span>
-            <div class="flex items-center gap-2">
-              <button onclick="alterarQtd(${i}, -1)" class="bg-gray-200 px-2 rounded">−</button>
-              <span>${item.qtd}</span>
-              <button onclick="alterarQtd(${i}, 1)" class="bg-gray-200 px-2 rounded">+</button>
+          <li class="border-b pb-4">
+            <div class="flex justify-between items-start">
+              <div class="w-1/2">
+                <span class="font-medium">${item.nome}</span>
+                ${temObservacao ? `<div class="text-sm text-gray-600 mt-1">Obs: ${item.observacao}</div>` : ''}
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="alterarQtd(${i}, -1)" class="bg-gray-200 px-2 rounded">−</button>
+                <span>${item.qtd}</span>
+                <button onclick="alterarQtd(${i}, 1)" class="bg-gray-200 px-2 rounded">+</button>
+              </div>
+              <span class="w-20 text-right">R$ ${(item.preco * item.qtd).toFixed(2)}</span>
+              <button onclick="removerItem(${i})" class="text-red-500 ml-2 font-bold">×</button>
             </div>
-            <span class="w-20 text-right">R$ ${(item.preco * item.qtd).toFixed(2)}</span>
-            <button onclick="removerItem(${i})" class="text-red-500 ml-2 font-bold">×</button>
+            
+            <div class="mt-2">
+              <span class="observacao-toggle" onclick="toggleObservacao('${observacaoId}')">
+                ${temObservacao ? 'Editar observação' : 'Adicionar observação'}
+              </span>
+              <div id="${observacaoId}" class="observacao-input hidden">
+                <input type="text" 
+                       value="${item.observacao || ''}" 
+                       placeholder="Ex: Sem gelo, mais gelo, etc." 
+                       class="w-full p-2 border rounded text-sm"
+                       onchange="salvarObservacao(${i}, this.value)">
+              </div>
+            </div>
           </li>
         `;
       });
+      
       totalCarrinho.textContent = "R$ " + total.toFixed(2);
       modalCarrinho.classList.remove("hidden");
+    }
+
+    function toggleObservacao(id) {
+      const element = document.getElementById(id);
+      element.classList.toggle("hidden");
+      if (!element.classList.contains("hidden")) {
+        element.querySelector("input").focus();
+      }
+    }
+
+    function salvarObservacao(index, observacao) {
+      let carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+      if (index >= 0 && index < carrinho.length) {
+        carrinho[index].observacao = observacao;
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        verCarrinho(); // Atualiza a visualização para mostrar a nova observação
+      }
     }
 
     function alterarQtd(index, delta) {
@@ -363,49 +427,47 @@
       modalNome.classList.add("hidden");
     }
 
-
-
-  
-
     function finalizarPedido() {
-  const nome = document.getElementById("nome-cliente").value.trim();
-  const endereco = document.getElementById("endereco-cliente").value.trim();
+      const nome = document.getElementById("nome-cliente").value.trim();
+      const endereco = document.getElementById("endereco-cliente").value.trim();
 
-  if (!nome || !endereco) {
-    alert("Por favor, preencha seu nome e endereço.");
-    return;
-  }
+      if (!nome || !endereco) {
+        alert("Por favor, preencha seu nome e endereço.");
+        return;
+      }
 
-  const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+      const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
 
-  let mensagem = `Olá! Meu nome é ${nome}, gostaria de fazer um pedido:\n\n`;
+      let mensagem = `Olá! Meu nome é ${nome}, gostaria de fazer um pedido:\n\n`;
 
-  carrinho.forEach(item => {
-    mensagem += `- ${item.qtd}x ${item.nome} (R$ ${(item.preco * item.qtd).toFixed(2)})\n`;
-  });
+      carrinho.forEach(item => {
+        mensagem += `- ${item.qtd}x ${item.nome} (R$ ${(item.preco * item.qtd).toFixed(2)})`;
+        if (item.observacao && item.observacao.trim() !== "") {
+          mensagem += ` - Obs: ${item.observacao}`;
+        }
+        mensagem += `\n`;
+      });
 
-  const total = carrinho.reduce((acc, item) => acc + item.preco * item.qtd, 0);
-  mensagem += `\nTotal: R$ ${total.toFixed(2)}\n`;
-  mensagem += `\nEndereço para entrega: ${endereco}`;
+      const total = carrinho.reduce((acc, item) => acc + item.preco * item.qtd, 0);
+      mensagem += `\nTotal: R$ ${total.toFixed(2)}\n`;
+      mensagem += `\nEndereço para entrega: ${endereco}`;
 
-  const url = `https://wa.me/5511914042925?text=${encodeURIComponent(mensagem)}`;
-  window.open(url, "_blank");
+      const url = `https://wa.me/5511914042925?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, "_blank");
 
-  localStorage.removeItem("carrinho");
-  fecharModalNome();
-  fecharCarrinho();
-  atualizarCarrinho();
-}
-
-
+      localStorage.removeItem("carrinho");
+      fecharModalNome();
+      fecharCarrinho();
+      atualizarContador();
+    }
 
     function mostrarToast() {
       const toast = document.getElementById("toast");
       toast.classList.add("show");
       setTimeout(() => toast.classList.remove("show"), 2500);
     }
-
     renderCategoria(cervejas, "cervejas");
+    renderCategoria(longneck, "longneck");
     renderCategoria(caixas, "caixas");
     renderCategoria(whiskys, "whiskys");
     renderCategoria(Combos, "combos");
@@ -421,4 +483,4 @@
     atualizarContador();
   </script>
 </body>
-  </html>
+</html>

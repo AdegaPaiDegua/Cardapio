@@ -52,9 +52,66 @@
       margin-top: 0.5rem;
       width: 100%;
     }
+    /* Estilos para o popup de boas-vindas */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .popup-content {
+      background-color: white;
+      color: black;
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 90%;
+      width: 500px;
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    .popup-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #666;
+    }
+    .popup-close:hover {
+      color: #000;
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen px-4 py-6">
+  <!-- Popup de boas-vindas -->
+  <div id="welcome-popup" class="popup-overlay">
+    <div class="popup-content">
+      <span class="popup-close" onclick="fecharPopup()">&times;</span>
+      <h2 class="text-2xl font-bold mb-4 text-amber-600">Promoção do dia</h2>
+      <p class="mb-4">Caixa de Budweiser de R$:32 por R$:26.</p>
+
+      <h2 class="text-2xl font-bold mb-4 text-amber-600">Novos Produtos</h2>
+      <p class="mb-4">Cerveja Colorado Ribeirão Lager 410ml Lata.</p>
+      <p class="mb-4">Skol Beats Caipirinha Lata 269ml.</p>
+      <p class="mb-4">Patagonia IPA Lata 350ml.</p>
+
+      <div class="text-sm text-gray-600">
+
+
+      </div>
+      <div class="mt-6">
+        <button onclick="fecharPopup()" class="bg-amber-600 text-black px-4 py-2 rounded-xl font-bold hover:bg-amber-500 w-full">
+          Começar a comprar
+        </button>
+      </div>
+    </div>
+  </div>
   <div class="max-w-6xl mx-auto">
     <div class="flex justify-between items-center mb-10">
       <h1 class="text-4xl font-extrabold">Adega Pai D'égua</h1>
@@ -286,9 +343,9 @@
     ];
 
     const longneck= [
-      { nome: "Heineken", preco: 10.00, descricao: "long", imagem: "https://www.imigrantesbebidas.com.br/bebida/images/products/full/222-cerveja-heineken-long-neck-330ml.jpg" },
-      { nome: "Corona", preco: 10.00, descricao: "long", imagem: "https://t3.ftcdn.net/jpg/03/17/49/16/360_F_317491690_r9vvpVqgOeuuvjQWDReJwOxGTYJWGPdy.jpg" },
-      { nome: "Estrella Galicia", preco: 10.00, descricao: "long", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Px6SHQLIlOwnn-4-kTlJBFN8TmUgZFXgfA&s" },
+      { nome: "Heineken Long", preco: 10.00, descricao: "long", imagem: "https://www.imigrantesbebidas.com.br/bebida/images/products/full/222-cerveja-heineken-long-neck-330ml.jpg" },
+      { nome: "Corona Long", preco: 10.00, descricao: "long", imagem: "https://t3.ftcdn.net/jpg/03/17/49/16/360_F_317491690_r9vvpVqgOeuuvjQWDReJwOxGTYJWGPdy.jpg" },
+      { nome: "Estrella Galicia Long", preco: 10.00, descricao: "long", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Px6SHQLIlOwnn-4-kTlJBFN8TmUgZFXgfA&s" },
     ];
 
 
@@ -297,6 +354,19 @@
     const totalCarrinho = document.getElementById("total-carrinho");
     const modalCarrinho = document.getElementById("modal-carrinho");
     const modalNome = document.getElementById("modal-nome");
+    const welcomePopup = document.getElementById("welcome-popup")
+
+    // Mostrar popup quando a página carregar
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mostrar popup após um pequeno delay para melhor experiência
+      setTimeout(() => {
+        welcomePopup.classList.remove('hidden');
+      }, 1000);
+    });
+
+    function fecharPopup() {
+      welcomePopup.classList.add('hidden');
+    }
 
     const renderCategoria = (produtos, containerId) => {
       const container = document.getElementById(containerId);

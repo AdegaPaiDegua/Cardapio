@@ -17,6 +17,12 @@
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
+    .gradient-text {
+      background: linear-gradient(to right, #c17415, #ffa200);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
     .toast {
       position: fixed;
       bottom: 20px;
@@ -52,66 +58,283 @@
       margin-top: 0.5rem;
       width: 100%;
     }
-    /* Estilos para o popup de boas-vindas */
+   
     .popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+  }
+  
+  .popup-container {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 162, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+  
+  .popup-header {
+    background: linear-gradient(135deg, #c17415 0%, #ffa200 100%);
+    padding: 20px;
+    position: relative;
+    text-align: center;
+  }
+  
+  .popup-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 4px;
+  }
+  
+  .popup-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+  }
+  
+  .popup-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  
+  .popup-close:hover {
+    background: rgba(0, 0, 0, 0.4);
+    transform: rotate(90deg);
+  }
+  
+  .popup-content {
+    padding: 20px;
+    color: #e0e0e0;
+  }
+  
+  .promo-item {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 162, 0, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 162, 0, 0.2);
+  }
+  
+  .promo-badge {
+    background: #ff4757;
+    color: white;
+    font-weight: 800;
+    padding: 5px 10px;
+    border-radius: 6px;
+    margin-right: 15px;
+    font-size: 0.9rem;
+  }
+  
+  .promo-details h3 {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: white;
+  }
+  
+  .price-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .old-price {
+    text-decoration: line-through;
+    color: #aaa;
+    font-size: 0.9rem;
+  }
+  
+  .new-price {
+    font-weight: 800;
+    color: #ffa200;
+    font-size: 1.2rem;
+  }
+  
+  .section-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 20px 0;
+  }
+  
+  .section-title {
+    font-weight: 700;
+    color: white;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .new-products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .new-product {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 12px;
+    position: relative;
+    font-size: 0.85rem;
+  }
+  
+  .product-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ffa200;
+    color: black;
+    font-weight: 800;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  
+  .action-button {
+    background: linear-gradient(135deg, #c17415 0%, #ffa200 100%);
+    color: black;
+    border: none;
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+    margin-top: 10px;
+  }
+  
+  .action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(193, 116, 21, 0.3);
+  }
+  
+  .action-button .icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  @media (max-width: 480px) {
+    .popup-container {
+      width: 95%;
     }
-    .popup-content {
-      background-color: white;
-      color: black;
-      padding: 2rem;
-      border-radius: 1rem;
-      max-width: 90%;
-      width: 500px;
-      position: relative;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    
+    .popup-header {
+      padding: 15px;
     }
-    .popup-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #666;
+    
+    .popup-title {
+      font-size: 1.3rem;
     }
-    .popup-close:hover {
-      color: #000;
+    
+    .new-products-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+    .hidden-category {
+      display: none;
+    }
+    #busca-produto {
+      transition: all 0.3s ease;
+    }
+    #busca-produto:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(193, 116, 21, 0.5);
     }
   </style>
 </head>
 <body class="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen px-4 py-6">
-  <!-- Popup de boas-vindas -->
-  <div id="welcome-popup" class="popup-overlay">
+<!-- Popup de boas-vindas -->
+<div id="welcome-popup" class="popup-overlay hidden">
+  <div class="popup-container animate-fade-in">
+    <div class="popup-header">
+      <h2 class="popup-title">🔥 Promoção do Dia</h2>
+      <p class="popup-subtitle">Aproveite nossas ofertas especiais</p>
+      <button class="popup-close" onclick="fecharPopup()">&times;</button>
+    </div>
+    
     <div class="popup-content">
-      <span class="popup-close" onclick="fecharPopup()">&times;</span>
-      <h2 class="text-2xl font-bold mb-4 text-amber-600">Promoção do dia</h2>
-      <p class="mb-4">Caixa de Budweiser de R$:32 por R$:26.</p>
-
-      <h2 class="text-2xl font-bold mb-4 text-amber-600">Novos Produtos</h2>
-      <p class="mb-4">Cerveja Colorado Ribeirão Lager 410ml Lata.</p>
-      <p class="mb-4">Skol Beats Caipirinha Lata 269ml.</p>
-      <p class="mb-4">Patagonia IPA Lata 350ml.</p>
-
-      <div class="text-sm text-gray-600">
-
-
+      <div class="promo-item">
+        <div class="promo-badge">-19%</div>
+        <div class="promo-details">
+          <h3>Caixa de Budweiser</h3>
+          <div class="price-container">
+            <span class="old-price">R$ 32,00</span>
+            <span class="new-price">R$ 26,00</span>
+          </div>
+        </div>
       </div>
-      <div class="mt-6">
-        <button onclick="fecharPopup()" class="bg-amber-600 text-black px-4 py-2 rounded-xl font-bold hover:bg-amber-500 w-full">
-          Começar a comprar
-        </button>
+      
+ 
+
+      <div class="section-divider"></div>
+      
+      <h3 class="section-title">🚀 Novos Produtos</h3>
+      
+      <div class="new-products-grid">
+        <div class="new-product">
+          <div class="product-badge">Novo</div>
+          <p>Dose Azedinho</p>
+        </div>
+        <div class="new-product">
+          <div class="product-badge">Novo</div>
+          <p>Dose Midnihgt</p>
+        </div>
+        <div class="new-product">
+          <div class="product-badge">Novo</div>
+          <p>Cerveja Colorado Ribeirão Lager 410ml Lata</p>
+        </div>
+        <div class="new-product">
+          <div class="product-badge">Novo</div>
+          <p>Skol Beats Caipirinha Lata 269ml</p>
+        </div>
+        <div class="new-product">
+          <div class="product-badge">Novo</div>
+          <p>Patagonia IPA Lata 350ml</p>
+        </div>
       </div>
+      
+      <button onclick="fecharPopup()" class="action-button">
+        Começar a comprar
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </button>
     </div>
   </div>
+</div>
+  
   <div class="max-w-6xl mx-auto">
     <div class="flex justify-between items-center mb-10">
       <h1 class="text-4xl font-extrabold">Adega Pai D'égua</h1>
@@ -120,56 +343,65 @@
       </button>
     </div>
 
+    <!-- Barra de busca melhorada -->
+    <div class="mb-8 relative">
+      <input type="text" id="busca-produto" placeholder="Digite pelo menos 3 letras para buscar..." 
+             class="w-full p-4 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none focus:border-amber-500 text-white"
+             oninput="buscarProdutos()">
+      <button onclick="buscarProdutos()" class="absolute right-3 top-1/2 transform -translate-y-1/2 bg-amber-600 text-black px-4 py-2 rounded-lg font-bold hover:bg-amber-500">
+        Buscar
+      </button>
+    </div>
+
     <div id="toast" class="toast">Item adicionado ao carrinho!</div>
+    
+    <div id="produtos-container">
+      <h2 class="text-2xl font-bold mb-4 text-amber-600">Cervejas</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="cervejas"></div>
+      
+      <h2 class="text-2xl font-bold mb-4 text-amber-600">Doses</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="doses"></div>
 
-    <div>
-        <h2 class="text-2xl font-bold mb-4 text-amber-600">Cervejas</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="cervejas"></div>
-        
-        <h2 class="text-2xl font-bold mb-4 text-amber-600">longneck</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="longneck"></div>
+      <h2 class="text-2xl font-bold mb-4 text-amber-600">Longnecks</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="longnecks"></div>
 
-        <h2 class="text-2xl font-bold mb-4 text-amber-600">Caixas</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="caixas"></div>
-  
-        <h2 class="text-2xl font-bold mb-4 text-amber-600">Whisky</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="whiskys"></div>
-  
-        <h2 class="text-2xl font-bold mb-4 text-amber-600">Combos</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="combos"></div>
-  
-        <h2 class="text-2xl font-bold mb-4 text-amber-600">Gin</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="gins"></div>
-  
-        <h2 class="text-2xl font-bold mb-4 text-amber-600">Cachaças</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="cachaças"></div>
-  
-        <h2 class="text-2xl font-bold mb-4 text-amber-600">Vodkas</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="vodkas"></div>
-  
-        <h2 class="text-2xl font-bold mb-4 text-amber-600">Doses</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="doses"></div>
-  
-        <h2 class="text-2xl font-bold mb-4 text-amber-600">Gelos</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="gelos"></div>
-  
-        <h2 class="text-2xl font-bold mb-4 text-amber-600">Refrigerantes</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="refrigerantes"></div>
-  
-        <h2 class="text-2xl font-bold mb-4 text-amber-600">Energeticos</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="energeticos"></div>
-  
-        <h2 class="text-2xl font-bold mb-4 text-amber-600">Tabacaria</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="tabacaria"></div>
-  
-        <h2 class="text-2xl font-bold mb-4 text-amber-600">Salgadinhos</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="salgadinhos"></div>
+      <h2 class="text-2xl font-bold mb-4 text-amber-600">Caixas</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="caixas"></div>
 
-  
-      </div>
+      <h2 class="text-2xl font-bold mb-4 text-amber-600">Whisky</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="whiskys"></div>
+
+      <h2 class="text-2xl font-bold mb-4 text-amber-600">Combos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="combos"></div>
+
+      <h2 class="text-2xl font-bold mb-4 text-amber-600">Gin</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="gins"></div>
+
+      <h2 class="text-2xl font-bold mb-4 text-amber-600">Cachaças</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="cachaças"></div>
+
+      <h2 class="text-2xl font-bold mb-4 text-amber-600">Vodkas</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="vodkas"></div>
+
+
+      <h2 class="text-2xl font-bold mb-4 text-amber-600">Gelos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="gelos"></div>
+
+      <h2 class="text-2xl font-bold mb-4 text-amber-600">Refrigerantes</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="refrigerantes"></div>
+
+      <h2 class="text-2xl font-bold mb-4 text-amber-600">Energeticos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="energeticos"></div>
+
+      <h2 class="text-2xl font-bold mb-4 text-amber-600">Tabacaria</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="tabacaria"></div>
+
+      <h2 class="text-2xl font-bold mb-4 text-amber-600">Salgadinhos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" id="salgadinhos"></div>
+    </div>
   </div>
 
-  <!-- Modal do carrinho atualizado -->
+  <!-- Modal do carrinho -->
   <div id="modal-carrinho" class="fixed inset-0 bg-black/80 hidden z-40 flex items-center justify-center p-4">
     <div class="bg-white text-black p-6 rounded-xl w-full max-w-lg shadow-xl relative max-h-[90vh] overflow-y-auto">
       <h2 class="text-2xl font-bold mb-4">Seu Carrinho</h2>
@@ -186,9 +418,7 @@
     </div>
   </div>
 
-  <!-- Modal de nome/endereço permanece o mesmo -->
-  <!-- ... -->
-
+  <!-- Modal de finalização -->
   <div id="modal-nome" class="modal hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center px-4">
     <div class="bg-white text-black p-6 rounded-2xl shadow-2xl w-full max-w-md animate-fade-in space-y-5">
       <h2 class="text-3xl font-bold text-center text-amber-600">Finalizar Pedido</h2>
@@ -219,34 +449,38 @@
       </div>
     </div>
   </div>
-  
-  
 
   <script>
+    // Arrays de produtos (mantidas as mesmas do código original)
     const cervejas = [
       { nome: "Heineken", preco: 5.00, descricao: "lata", imagem: "https://th.bing.com/th/id/OIP.gLGHPrgQbovtQU4wXE6hYwHaHa?rs=1&pid=ImgDetMain" },
-      { nome: "Budweiser", preco: 4.50, descricao: "lata", imagem: "https://down-br.img.susercontent.com/file/6cf56f35c9005d4f45ced45db0c30edb" },
-      { nome: "itaipava", preco: 3.50, descricao: "lata", imagem: "https://phygital-files.mercafacil.com/bom-lugar/uploads/produto/cerveja_itaipava_pilsen_lata_350ml_39322ea1-7219-4bea-9ab6-7056b2fb940b.jpg" },
-      { nome: "Império", preco: 4.00, descricao: "lata", imagem: "https://tfchgi.vteximg.com.br/arquivos/ids/171586-1000-1000/7898915949209.jpg?v=637783886469700000" },
-      { nome: "Original", preco: 4.50, descricao: "lata", imagem: "https://coopsp.vtexassets.com/arquivos/ids/232285-800-800?v=638158831793470000&width=800&height=800&aspect=true" },
-      { nome: "Brahma Duplo Malte", preco: 5.00, descricao: "lata", imagem: "https://lelecodelivery.com.br/wp-content/uploads/2020/10/BRAHMA-DUPLO-MALTE-1024x1024.png" },
+      { nome: "Patagonia IPA", preco: 10.00, descricao: "lata", imagem: "https://mfresh.s3.amazonaws.com/uploads/product/sku/22910/image/4500973a-748d-4b36-9992-27a5a2053614.jpg" },
       { nome: "Skol", preco: 4.00, descricao: "lata", imagem: "https://armazemseuluiz.com.br/storage/app/uploads/public/637/bc8/624/637bc8624b183689503712" },
+      { nome: "Original", preco: 4.50, descricao: "lata", imagem: "https://coopsp.vtexassets.com/arquivos/ids/232285-800-800?v=638158831793470000&width=800&height=800&aspect=true" },
+      { nome: "itaipava", preco: 3.50, descricao: "lata", imagem: "https://phygital-files.mercafacil.com/bom-lugar/uploads/produto/cerveja_itaipava_pilsen_lata_350ml_39322ea1-7219-4bea-9ab6-7056b2fb940b.jpg" },
+      { nome: "Cerveja Colorado Ribeirão Lager", preco: 10.00, descricao: "lata", imagem: "https://samsclub.vtexassets.com/arquivos/ids/175719-150-auto?v=638004014911530000&width=150&height=auto&aspect=true" },
+      { nome: "Budweiser", preco: 4.50, descricao: "lata", imagem: "https://down-br.img.susercontent.com/file/6cf56f35c9005d4f45ced45db0c30edb" },
+      { nome: "Império", preco: 4.00, descricao: "lata", imagem: "https://tfchgi.vteximg.com.br/arquivos/ids/171586-1000-1000/7898915949209.jpg?v=637783886469700000" },
+      { nome: "Brahma Duplo Malte", preco: 5.00, descricao: "lata", imagem: "https://lelecodelivery.com.br/wp-content/uploads/2020/10/BRAHMA-DUPLO-MALTE-1024x1024.png" },
       { nome: "Petra", preco: 3.50, descricao: "lata ", imagem: "https://www.imigrantesbebidas.com.br/bebida/images/products/full/88162-cerveja-petra-puro-malte-lata-269ml.jpg" },
-      { nome: "Estrella Galicia", preco: 9.00, descricao: "lata", imagem: "https://statics.angeloni.com.br/super/files/produtos/3999454/3999454_1_zoom.jpg" },
-      { nome: "Spaten", preco: 5.00, descricao: "lata", imagem: "https://th.bing.com/th/id/OIP.zr9UqRQG88fka5u9w8wa4QHaHa?rs=1&pid=ImgDetMain" },
     ];
 
+    const longnecks = [
+      { nome: "Heineken Long", preco: 10.00, descricao: "longneck", imagem: "https://www.imigrantesbebidas.com.br/bebida/images/products/full/222-cerveja-heineken-long-neck-330ml.jpg" },
+      { nome: "Corona Long", preco: 10.00, descricao: "longneck", imagem: "https://t3.ftcdn.net/jpg/03/17/49/16/360_F_317491690_r9vvpVqgOeuuvjQWDReJwOxGTYJWGPdy.jpg" },
+      { nome: "Estrella Galicia Long", preco: 10.00, descricao: "longneck", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Px6SHQLIlOwnn-4-kTlJBFN8TmUgZFXgfA&s" },
+    ];
 
     const caixas = [
-      { nome: "Caixa Heineken", preco: 35.00, descricao: "lata", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-BpZjvyKcEQZqVhORefgHg7sPUUjcqNg_JQ&s" },
-      { nome: "Caixa Budweiser", preco: 32.00, descricao: "caixa", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbmMWVZa-NZ6I1FqbP0dcRJCuq1h-rDljUDQ&s" },
-      { nome: "Caixa Império", preco: 45.00, descricao: "caixa", imagem: "https://covabra.vtexassets.com/arquivos/ids/215103-800-450?v=638308159339330000&width=800&height=450&aspect=true" },
-      { nome: "Caixa Original", preco: 32.00, descricao: "caixa", imagem: "https://static.paodeacucar.com/img/uploads/1/133/23981133.jpg?im=Resize,width=200" },
-      { nome: "Caixa Brahma Duplo Malte", preco: 50.00, descricao: "caixa", imagem: "https://http2.mlstatic.com/D_Q_NP_981955-MLU71273938267_082023-O.webphttps://http2.mlstatic.com/D_Q_NP_981955-MLU71273938267_082023-O.webp" },
-      { nome: "Caixa Skol", preco: 45.00, descricao: "caixa", imagem: "https://trend-files-public-prod.s3.us-east-1.amazonaws.com/thumbs/840-0ace217d-55a6-437c-a8fb-b3980213435f.jpg" },
-      { nome: "Caixa Petra", preco: 35.00, descricao: "caixa", imagem: "https://down-br.img.susercontent.com/file/1ab035353f4e835d76425f4f8a7e7ec0" },
-      { nome: "Caixa itaipava",  descricao: "caixa", preco: 35.00, imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRv0PGrZhHohVu1IcT3xXdbmGIvPFl0Enh0g&s" },
-      { nome: "Caixa Spaten", preco: 35.00, descricao: "0 estoque", imagem: "https://m.media-amazon.com/images/I/51Trhd2hgkL.jpg" },
+      { nome: "Caixa Heineken", preco: 35.00, descricao: "6 latas", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-BpZjvyKcEQZqVhORefgHg7sPUUjcqNg_JQ&s" },
+      { nome: "Caixa Budweiser", preco: 32.00, descricao: "12 latas", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbmMWVZa-NZ6I1FqbP0dcRJCuq1h-rDljUDQ&s" },
+      { nome: "Caixa Império", preco: 45.00, descricao: "12 latas", imagem: "https://covabra.vtexassets.com/arquivos/ids/215103-800-450?v=638308159339330000&width=800&height=450&aspect=true" },
+      { nome: "Caixa Original", preco: 32.00, descricao: "12 latas", imagem: "https://static.paodeacucar.com/img/uploads/1/133/23981133.jpg?im=Resize,width=200" },
+      { nome: "Caixa Brahma Duplo Malte", preco: 50.00, descricao: "12 latas", imagem: "https://http2.mlstatic.com/D_Q_NP_981955-MLU71273938267_082023-O.webphttps://http2.mlstatic.com/D_Q_NP_981955-MLU71273938267_082023-O.webp" },
+      { nome: "Caixa Skol", preco: 45.00, descricao: "12 latas", imagem: "https://trend-files-public-prod.s3.us-east-1.amazonaws.com/thumbs/840-0ace217d-55a6-437c-a8fb-b3980213435f.jpg" },
+      { nome: "Caixa Petra", preco: 35.00, descricao: "12 latas", imagem: "https://down-br.img.susercontent.com/file/1ab035353f4e835d76425f4f8a7e7ec0" },
+      { nome: "Caixa itaipava", preco: 35.00, descricao: "12 latas", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRv0PGrZhHohVu1IcT3xXdbmGIvPFl0Enh0g&s" },
+      { nome: "Caixa Spaten", preco: 35.00, descricao: "12 latas", imagem: "https://m.media-amazon.com/images/I/51Trhd2hgkL.jpg" },
     ];
 
     const whiskys = [
@@ -256,29 +490,28 @@
       { nome: "Jack Daniel s Honey 700ml", preco: 130.00, descricao: "destilados", imagem: "https://www.casadabebida.com.br/img/products/4277/000.webp" },
     ];
 
-
     const cachaças = [
-    { nome: "Kariri", preco: 21.00, descricao: "destilados", imagem: "https://a-static.mlcdn.com.br/800x560/cachaca-kariri-com-k-ouro-960ml/lojamegaadegakanguru/58808/1a65b5b3a20645039770b3618c58abaf.jpeg" },
-    { nome: "51", preco: 16.00, descricao: "destilados", imagem: "https://th.bing.com/th/id/OIP.fXxl1bXRfFe5mBvlfe8OHgHaHa?rs=1&pid=ImgDetMain" },
-    { nome: "Pitu", preco: 7.00, descricao: "destilados", imagem: "https://armazemnordestino.com.br/wp-content/uploads/2023/03/Lata-pitu.jpg" },
-    { nome: "Dreher", preco: 23.00, descricao: "destilados", imagem: "https://th.bing.com/th/id/OIP.5VQoPaa8pU-60wwDUGYMpQHaKe?rs=1&pid=ImgDetMain" },
-    { nome: "Contine", preco: 37.00, descricao: "destilados", imagem: "https://a-static.mlcdn.com.br/1500x1500/vermouth-contini-bianco-900ml/rbbebidasdistribuidora/217p/2c856567ad2439a849f7442a9fed5577.jpeg" },
-  ];
+      { nome: "Kariri", preco: 21.00, descricao: "destilados", imagem: "https://a-static.mlcdn.com.br/800x560/cachaca-kariri-com-k-ouro-960ml/lojamegaadegakanguru/58808/1a65b5b3a20645039770b3618c58abaf.jpeg" },
+      { nome: "51", preco: 16.00, descricao: "destilados", imagem: "https://th.bing.com/th/id/OIP.fXxl1bXRfFe5mBvlfe8OHgHaHa?rs=1&pid=ImgDetMain" },
+      { nome: "Pitu", preco: 7.00, descricao: "destilados", imagem: "https://armazemnordestino.com.br/wp-content/uploads/2023/03/Lata-pitu.jpg" },
+      { nome: "Dreher", preco: 23.00, descricao: "destilados", imagem: "https://th.bing.com/th/id/OIP.5VQoPaa8pU-60wwDUGYMpQHaKe?rs=1&pid=ImgDetMain" },
+      { nome: "Contine", preco: 37.00, descricao: "destilados", imagem: "https://a-static.mlcdn.com.br/1500x1500/vermouth-contini-bianco-900ml/rbbebidasdistribuidora/217p/2c856567ad2439a849f7442a9fed5577.jpeg" },
+    ];
 
-  const vodkas = [
-    { nome: "Askov", preco: 21.00, descricao: "destilados", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1LIPSSEm-Qw1vhIM3vGxVHHKSK_3e5g2ppw&s" },
-    { nome: "Vodka Smirnoff", descricao: "destilados", preco: 39.00, imagem: "https://mfresh.s3.amazonaws.com/uploads/product/sku/3538/image/dc63d991-7ccb-4108-b95c-8c547ad85a33.jpeg" },
-  ];
-  
-  const energeticos = [
-    { nome: "Red Bull", preco: 10.00, descricao: "diversos sabores", imagem: "https://www.imigrantesbebidas.com.br/img/bebida/images/products/full/3401-energetico-red-bull-energy-drink-250ml.jpg?s=60f44e2e30f15d9fb0bee05c289d03a9" },
-    { nome: "Monster", preco: 12.00, descricao: "diversos sabores", imagem: "https://images.tcdn.com.br/img/img_prod/774261/energy_monster_lata_473ml_306_1_2081e6152f57ef62aa20d9698098229a.jpg" },
-    { nome: "Vibe", preco: 12.00, descricao: "diversos sabores", imagem: "https://th.bing.com/th/id/OIP.6yO_wZZX3vwUdnj8JLQI_gHaHa?rs=1&pid=ImgDetMain" },
- ];
+    const vodkas = [
+      { nome: "Askov", preco: 21.00, descricao: "destilados", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1LIPSSEm-Qw1vhIM3vGxVHHKSK_3e5g2ppw&s" },
+      { nome: "Vodka Smirnoff", preco: 39.00, descricao: "destilados", imagem: "https://mfresh.s3.amazonaws.com/uploads/product/sku/3538/image/dc63d991-7ccb-4108-b95c-8c547ad85a33.jpeg" },
+    ];
+    
+    const energeticos = [
+      { nome: "Red Bull", preco: 10.00, descricao: "diversos sabores", imagem: "https://www.imigrantesbebidas.com.br/img/bebida/images/products/full/3401-energetico-red-bull-energy-drink-250ml.jpg?s=60f44e2e30f15d9fb0bee05c289d03a9" },
+      { nome: "Monster", preco: 12.00, descricao: "diversos sabores", imagem: "https://images.tcdn.com.br/img/img_prod/774261/energy_monster_lata_473ml_306_1_2081e6152f57ef62aa20d9698098229a.jpg" },
+      { nome: "Vibe", preco: 12.00, descricao: "diversos sabores", imagem: "https://th.bing.com/th/id/OIP.6yO_wZZX3vwUdnj8JLQI_gHaHa?rs=1&pid=ImgDetMain" },
+    ];
 
     const gins = [
       { nome: "Eternity Morango", preco: 25.00, descricao: "destilados", imagem: "https://bebidasfamosas.vtexassets.com/arquivos/ids/161573/Gin-Eternity-Strawberry-900ml.jpg?v=638514746107800000" },
-      { nome: "Eternity Maçã Verde", preco: 25.00, descricao: "destilados", imagem: "https://bebidasfamosas.vtexassets.com/arquivos/ids/161572/Gin-Eternity-Maca-Verde-900ml.jpg?v=638514742696530000  " },
+      { nome: "Eternity Maçã Verde", preco: 25.00, descricao: "destilados", imagem: "https://bebidasfamosas.vtexassets.com/arquivos/ids/161572/Gin-Eternity-Maca-Verde-900ml.jpg?v=638514742696530000" },
       { nome: "Eternity Melancia", preco: 25.00, descricao: "destilados", imagem: "https://th.bing.com/th/id/OIP.65UuUchhCVT8-w4ldjxCKAHaHa?rs=1&pid=ImgDetMain" },
       { nome: "Eternity Tropical", preco: 25.00, descricao: "destilados", imagem: "https://www.imigrantesbebidas.com.br/img/bebida/images/products/full/19543-gin-eternity-tropical-fruits-900ml.20240626131948.jpg?p=product_regular&s=c715ec724cb701a0e7ef8517e5e62a34" },
       { nome: "Eternity Pêssego e Framboesa", preco: 25.00, descricao: "destilados", imagem: "https://a-static.mlcdn.com.br/1500x1500/gin-eternity-pessego-e-framboesa-900ml/royalbebidasonline/21572/84455031705a9ab383542caba1ee0128.jpeg" },
@@ -303,17 +536,17 @@
     ];
 
     const Doses = [
+      { nome: "Dose Eternity", preco: 12.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
       { nome: "Dose Cavalo Com Red Bull", preco: 25.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
-      { nome: "Dose Cavalo Com Vibe", preco: 20.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
+      { nome: "Dose Gin Rocks", preco: 15.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
       { nome: "Dose Red Label Com Red Bull", preco: 30.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
       { nome: "Dose Jack Daniels Com Red Bull", preco: 40.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
-      { nome: "Dose Gin Rocks", preco: 15.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
+      { nome: "Dose Cavalo Com Vibe", preco: 20.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
       { nome: "Dose Tanqueray Com Red Bull", preco: 35.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
+      { nome: "Dose Kariri", preco: 20.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
       { nome: "Dose Quente", preco: 5.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
       { nome: "Dose Smirnoff Red Bull", preco: 25.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
       { nome: "Dose Malibu", preco: 20.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
-      { nome: "Dose Eternity", preco: 12.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
-      { nome: "Dose Kariri", preco: 20.00, imagem: "https://static-images.ifood.com.br/pratos/bfb79dbd-916c-4e08-aac1-1bbb7a92d2c0/202502010049_Y0M8_i.jpg" },
     ];
 
     const Salgadinhos = [
@@ -342,35 +575,157 @@
       { nome: "Gelo de Coco", preco: 3.50, imagem: "https://covabra.vtexassets.com/arquivos/ids/179659-800-450?v=638107808628700000&width=800&height=450&aspect=true" },
     ];
 
-    const longneck= [
-      { nome: "Heineken Long", preco: 10.00, descricao: "long", imagem: "https://www.imigrantesbebidas.com.br/bebida/images/products/full/222-cerveja-heineken-long-neck-330ml.jpg" },
-      { nome: "Corona Long", preco: 10.00, descricao: "long", imagem: "https://t3.ftcdn.net/jpg/03/17/49/16/360_F_317491690_r9vvpVqgOeuuvjQWDReJwOxGTYJWGPdy.jpg" },
-      { nome: "Estrella Galicia Long", preco: 10.00, descricao: "long", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Px6SHQLIlOwnn-4-kTlJBFN8TmUgZFXgfA&s" },
+    // Juntando todos os produtos em um array para busca
+    const todosProdutos = [
+      ...cervejas,
+      ...longnecks,
+      ...caixas,
+      ...whiskys,
+      ...Combos,
+      ...energeticos,
+      ...gins,
+      ...cachaças,
+      ...Doses,
+      ...refrigerantes,
+      ...Tabacaria,
+      ...Salgadinhos,
+      ...Gelos,
+      ...vodkas
     ];
 
-
+    // Elementos do DOM
     const contadorCarrinho = document.getElementById("contador-carrinho");
     const listaCarrinho = document.getElementById("lista-carrinho");
     const totalCarrinho = document.getElementById("total-carrinho");
     const modalCarrinho = document.getElementById("modal-carrinho");
     const modalNome = document.getElementById("modal-nome");
-    const welcomePopup = document.getElementById("welcome-popup")
+    const welcomePopup = document.getElementById("welcome-popup");
 
     // Mostrar popup quando a página carregar
     document.addEventListener('DOMContentLoaded', function() {
-      // Mostrar popup após um pequeno delay para melhor experiência
       setTimeout(() => {
         welcomePopup.classList.remove('hidden');
       }, 1000);
+      
+      // Renderiza todos os produtos inicialmente
+      renderizarTodosProdutos();
     });
 
     function fecharPopup() {
       welcomePopup.classList.add('hidden');
     }
 
+    // Função de busca de produtos melhorada
+    function buscarProdutos() {
+      const termoBusca = document.getElementById('busca-produto').value.toLowerCase().trim();
+      
+      // Não faz busca se tiver menos de 3 caracteres
+      if (termoBusca.length < 3) {
+        // Mostra todas as categorias se a busca for vazia ou com menos de 3 letras
+        document.querySelectorAll('[id$="s"]').forEach(categoria => {
+          categoria.classList.remove('hidden-category');
+          categoria.previousElementSibling.classList.remove('hidden-category');
+        });
+        
+        // Remove resultados de busca anteriores
+        const resultadosAnteriores = document.getElementById('resultados-busca-container');
+        if (resultadosAnteriores) {
+          resultadosAnteriores.remove();
+        }
+        return;
+      }
+
+      // Esconde todas as categorias
+      document.querySelectorAll('[id$="s"]').forEach(categoria => {
+        categoria.classList.add('hidden-category');
+        categoria.previousElementSibling.classList.add('hidden-category');
+      });
+
+      // Busca por correspondência parcial em nome ou descrição
+      const resultados = todosProdutos.filter(produto => 
+        produto.nome.toLowerCase().includes(termoBusca) ||
+        (produto.descricao && produto.descricao.toLowerCase().includes(termoBusca)))
+        .sort((a, b) => {
+          // Ordena por melhor correspondência (começa com o termo)
+          const aStartsWith = a.nome.toLowerCase().startsWith(termoBusca);
+          const bStartsWith = b.nome.toLowerCase().startsWith(termoBusca);
+          
+          if (aStartsWith && !bStartsWith) return -1;
+          if (!aStartsWith && bStartsWith) return 1;
+          return 0;
+        });
+
+      // Remove resultados anteriores
+      const resultadosAnteriores = document.getElementById('resultados-busca-container');
+      if (resultadosAnteriores) {
+        resultadosAnteriores.remove();
+      }
+
+      const container = document.createElement('div');
+      container.id = 'resultados-busca-container';
+      
+      if (resultados.length > 0) {
+        const resultadosContainer = document.createElement('div');
+        resultadosContainer.id = 'resultados-busca';
+        resultadosContainer.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10';
+        
+        // Título com contagem de resultados
+        const titulo = document.createElement('h2');
+        titulo.className = 'text-2xl font-bold mb-4 text-amber-600';
+        titulo.textContent = `${resultados.length} resultado(s) para "${termoBusca}"`;
+        container.appendChild(titulo);
+        
+        // Adiciona os produtos encontrados
+        resultados.forEach(produto => {
+          resultadosContainer.innerHTML += `
+            <div class="glass p-6 rounded-2xl shadow-xl hover:scale-[1.02] transition-transform">
+              <img src="${produto.imagem}" class="rounded-xl mb-4 w-full h-40 object-cover" alt="${produto.nome}">
+              <h3 class="text-xl font-bold mb-2">${produto.nome}</h3>
+              <p class="text-gray-300 mb-2">${produto.descricao || "Produto gelado e pronto para você!"}</p>
+              <div class="flex justify-between items-center">
+                <span class="text-lg font-semibold text-amber-600">R$ ${produto.preco.toFixed(2)}</span>
+                <button onclick="adicionarCarrinho('${produto.nome.replace(/'/g, "\\'")}', ${produto.preco})" class="bg-amber-600 hover:bg-amber-500 text-black px-4 py-1.5 rounded-xl">Pedir</button>
+              </div>
+            </div>
+          `;
+        });
+        
+        container.appendChild(resultadosContainer);
+      } else {
+        // Mensagem quando não há resultados
+        const mensagem = document.createElement('div');
+        mensagem.className = 'text-center py-8 text-gray-400';
+        mensagem.textContent = `Nenhum produto encontrado para "${termoBusca}"`;
+        container.appendChild(mensagem);
+      }
+      
+      // Insere os resultados no início da lista de produtos
+      const produtosSection = document.getElementById('produtos-container');
+      produtosSection.insertBefore(container, produtosSection.firstChild);
+    }
+
+    // Função para renderizar todos os produtos nas categorias
+    function renderizarTodosProdutos() {
+      renderCategoria(cervejas, "cervejas");
+      renderCategoria(longnecks, "longnecks");
+      renderCategoria(caixas, "caixas");
+      renderCategoria(whiskys, "whiskys");
+      renderCategoria(Combos, "combos");
+      renderCategoria(energeticos, "energeticos");
+      renderCategoria(gins, "gins");
+      renderCategoria(cachaças, "cachaças");
+      renderCategoria(Doses, "doses");
+      renderCategoria(refrigerantes, "refrigerantes");
+      renderCategoria(Tabacaria, "tabacaria");
+      renderCategoria(Salgadinhos, "salgadinhos");
+      renderCategoria(Gelos, "gelos");
+      renderCategoria(vodkas, "vodkas");
+    }
+
     const renderCategoria = (produtos, containerId) => {
       const container = document.getElementById(containerId);
-      produtos.forEach((p, i) => {
+      container.innerHTML = ''; // Limpa o container antes de renderizar
+      produtos.forEach((p) => {
         container.innerHTML += `
           <div class="glass p-6 rounded-2xl shadow-xl hover:scale-[1.02] transition-transform">
             <img src="${p.imagem}" class="rounded-xl mb-4 w-full h-40 object-cover" alt="${p.nome}">
@@ -378,7 +733,7 @@
             <p class="text-gray-300 mb-2">${p.descricao || "Produto gelado e pronto para você!"}</p>
             <div class="flex justify-between items-center">
               <span class="text-lg font-semibold text-amber-600">R$ ${p.preco.toFixed(2)}</span>
-              <button onclick="adicionarCarrinho('${p.nome}', ${p.preco})" class="bg-amber-600 hover:bg-amber-500 text-black px-4 py-1.5 rounded-xl">Pedir</button>
+              <button onclick="adicionarCarrinho('${p.nome.replace(/'/g, "\\'")}', ${p.preco})" class="bg-amber-600 hover:bg-amber-500 text-black px-4 py-1.5 rounded-xl">Pedir</button>
             </div>
           </div>
         `;
@@ -464,7 +819,7 @@
       if (index >= 0 && index < carrinho.length) {
         carrinho[index].observacao = observacao;
         localStorage.setItem("carrinho", JSON.stringify(carrinho));
-        verCarrinho(); // Atualiza a visualização para mostrar a nova observação
+        verCarrinho();
       }
     }
 
@@ -544,21 +899,6 @@
       toast.classList.add("show");
       setTimeout(() => toast.classList.remove("show"), 2500);
     }
-    renderCategoria(cervejas, "cervejas");
-    renderCategoria(longneck, "longneck");
-    renderCategoria(caixas, "caixas");
-    renderCategoria(whiskys, "whiskys");
-    renderCategoria(Combos, "combos");
-    renderCategoria(energeticos, "energeticos");
-    renderCategoria(gins, "gins");
-    renderCategoria(cachaças, "cachaças");
-    renderCategoria(Doses, "doses");
-    renderCategoria(refrigerantes, "refrigerantes");
-    renderCategoria(Tabacaria, "tabacaria");
-    renderCategoria(Salgadinhos, "salgadinhos");
-    renderCategoria(Gelos, "gelos");
-    renderCategoria(vodkas, "vodkas");
-    atualizarContador();
   </script>
 </body>
 </html>

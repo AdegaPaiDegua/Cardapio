@@ -405,11 +405,32 @@
   <div id="modal-carrinho" class="fixed inset-0 bg-black/80 hidden z-40 flex items-center justify-center p-4">
     <div class="bg-white text-black p-6 rounded-xl w-full max-w-lg shadow-xl relative max-h-[90vh] overflow-y-auto">
       <h2 class="text-2xl font-bold mb-4">Seu Carrinho</h2>
+      
+      <!-- Campo para cupom de desconto -->
+      <div class="mb-4 flex gap-2">
+        <input id="cupom-desconto" type="text" placeholder="Digite seu cupom" 
+               class="flex-1 p-2 border rounded text-sm">
+        <button onclick="aplicarCupom()" class="bg-amber-600 text-black px-3 py-1 rounded hover:bg-amber-500 text-sm">
+          Aplicar
+        </button>
+      </div>
+      <div id="cupom-mensagem" class="text-sm mb-2 hidden"></div>
+      
       <ul id="lista-carrinho" class="mb-4 space-y-4"></ul>
+      
       <div class="flex justify-between items-center font-semibold text-lg mb-4">
+        <span>Subtotal:</span>
+        <span id="subtotal-carrinho">R$ 0,00</span>
+      </div>
+      <div id="desconto-container" class="flex justify-between items-center text-green-600 text-lg mb-4 hidden">
+        <span>Desconto:</span>
+        <span id="desconto-valor">-R$ 0,00</span>
+      </div>
+      <div class="flex justify-between items-center font-bold text-xl mb-4 border-t pt-2">
         <span>Total:</span>
         <span id="total-carrinho">R$ 0,00</span>
       </div>
+      
       <div class="flex gap-4">
         <button onclick="abrirModalNome()" class="bg-amber-600 w-full py-2 rounded-xl font-bold hover:bg-amber-500">Finalizar Pedido</button>
         <button onclick="limparCarrinho()" class="bg-red-500 text-white px-4 py-2 rounded-xl hover:bg-red-400">Limpar</button>
@@ -451,7 +472,7 @@
   </div>
 
   <script>
-    // Arrays de produtos (mantidas as mesmas do código original)
+    // Arrays de produtos
     const cervejas = [
       { nome: "Heineken", preco: 5.00, descricao: "lata", imagem: "https://th.bing.com/th/id/OIP.gLGHPrgQbovtQU4wXE6hYwHaHa?rs=1&pid=ImgDetMain" },
       { nome: "Patagonia IPA", preco: 10.00, descricao: "lata", imagem: "https://mfresh.s3.amazonaws.com/uploads/product/sku/22910/image/4500973a-748d-4b36-9992-27a5a2053614.jpg" },
@@ -596,10 +617,23 @@
     // Elementos do DOM
     const contadorCarrinho = document.getElementById("contador-carrinho");
     const listaCarrinho = document.getElementById("lista-carrinho");
+    const subtotalCarrinho = document.getElementById("subtotal-carrinho");
+    const descontoContainer = document.getElementById("desconto-container");
+    const descontoValor = document.getElementById("desconto-valor");
     const totalCarrinho = document.getElementById("total-carrinho");
     const modalCarrinho = document.getElementById("modal-carrinho");
     const modalNome = document.getElementById("modal-nome");
     const welcomePopup = document.getElementById("welcome-popup");
+
+    // Cupons pré-definidos (adicionados diretamente no código)
+    const cupons = [
+      { codigo: "PARÁ15", tipo: "porcentagem", valor: 15, ativo: true },
+      { codigo: "PARCEIRO2", tipo: "porcentagem", valor: 19, ativo: true },
+
+    ];
+
+    // Variável para armazenar cupons aplicados
+    let cuponsAplicados = JSON.parse(localStorage.getItem('cuponsAplicados')) || [];
 
     // Mostrar popup quando a página carregar
     document.addEventListener('DOMContentLoaded', function() {
@@ -613,6 +647,89 @@
 
     function fecharPopup() {
       welcomePopup.classList.add('hidden');
+    }
+
+    // Função para aplicar cupom de desconto
+    function aplicarCupom() {
+      const cupomInput = document.getElementById('cupom-desconto').value.trim().toUpperCase();
+      const mensagemCupom = document.getElementById('cupom-mensagem');
+      
+      if (!cupomInput) {
+        mensagemCupom.textContent = 'Digite um cupom válido';
+        mensagemCupom.className = 'text-sm mb-2 text-red-600';
+        mensagemCupom.classList.remove('hidden');
+        return;
+      }
+      
+      // Verifica se o cupom existe e está ativo
+      const cupom = cupons.find(c => c.codigo === cupomInput && c.ativo);
+      
+      if (!cupom) {
+        mensagemCupom.textContent = 'Cupom inválido ou inativo';
+        mensagemCupom.className = 'text-sm mb-2 text-red-600';
+        mensagemCupom.classList.remove('hidden');
+        return;
+      }
+      
+      // Verifica se o cupom já foi aplicado
+      if (cuponsAplicados.some(c => c.codigo === cupomInput)) {
+        mensagemCupom.textContent = 'Este cupom já foi aplicado';
+        mensagemCupom.className = 'text-sm mb-2 text-yellow-600';
+        mensagemCupom.classList.remove('hidden');
+        return;
+      }
+      
+      // Adiciona o cupom à lista de cupons aplicados
+      cuponsAplicados.push(cupom);
+      localStorage.setItem('cuponsAplicados', JSON.stringify(cuponsAplicados));
+      
+      mensagemCupom.textContent = `Cupom ${cupom.codigo} aplicado com sucesso!`;
+      mensagemCupom.className = 'text-sm mb-2 text-green-600';
+      mensagemCupom.classList.remove('hidden');
+      
+      // Limpa o campo de cupom
+      document.getElementById('cupom-desconto').value = '';
+      
+      // Atualiza o carrinho para mostrar o desconto
+      verCarrinho();
+    }
+
+    function calcularDescontos(subtotal) {
+      let descontoTotal = 0;
+      let descontoPorcentagem = 0;
+      let descontoValorFixo = 0;
+      
+      // Primeiro aplica os descontos de valor fixo
+      cuponsAplicados.forEach(cupom => {
+        if (cupom.tipo === 'valor') {
+          descontoValorFixo += cupom.valor;
+        }
+      });
+      
+      // Limita o desconto de valor fixo ao subtotal
+      descontoValorFixo = Math.min(descontoValorFixo, subtotal);
+      
+      // Aplica os descontos percentuais sobre o valor restante
+      const subtotalAposFixo = subtotal - descontoValorFixo;
+      
+      cuponsAplicados.forEach(cupom => {
+        if (cupom.tipo === 'porcentagem') {
+          descontoPorcentagem += cupom.valor;
+        }
+      });
+      
+      // Limita o desconto percentual a 100%
+      descontoPorcentagem = Math.min(descontoPorcentagem, 100);
+      
+      const descontoPorcentagemValor = subtotalAposFixo * (descontoPorcentagem / 100);
+      
+      descontoTotal = descontoValorFixo + descontoPorcentagemValor;
+      
+      return {
+        descontoTotal,
+        descontoPorcentagem,
+        descontoValorFixo
+      };
     }
 
     // Função de busca de produtos melhorada
@@ -762,10 +879,10 @@
     function verCarrinho() {
       let carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
       listaCarrinho.innerHTML = "";
-      let total = 0;
+      let subtotal = 0;
       
       carrinho.forEach((item, i) => {
-        total += item.preco * item.qtd;
+        subtotal += item.preco * item.qtd;
         
         const observacaoId = `observacao-${i}`;
         const temObservacao = item.observacao && item.observacao.trim() !== "";
@@ -802,7 +919,21 @@
         `;
       });
       
-      totalCarrinho.textContent = "R$ " + total.toFixed(2);
+      // Atualiza os valores com desconto
+      document.getElementById('subtotal-carrinho').textContent = "R$ " + subtotal.toFixed(2);
+      
+      const { descontoTotal } = calcularDescontos(subtotal);
+      const total = Math.max(0, subtotal - descontoTotal);
+      
+      if (descontoTotal > 0) {
+        document.getElementById('desconto-container').classList.remove('hidden');
+        document.getElementById('desconto-valor').textContent = "-R$ " + descontoTotal.toFixed(2);
+        document.getElementById('total-carrinho').textContent = "R$ " + total.toFixed(2);
+      } else {
+        document.getElementById('desconto-container').classList.add('hidden');
+        document.getElementById('total-carrinho').textContent = "R$ " + subtotal.toFixed(2);
+      }
+      
       modalCarrinho.classList.remove("hidden");
     }
 
@@ -842,6 +973,10 @@
 
     function limparCarrinho() {
       localStorage.removeItem("carrinho");
+      cuponsAplicados = [];
+      localStorage.removeItem('cuponsAplicados');
+      document.getElementById('cupom-desconto').value = '';
+      document.getElementById('cupom-mensagem').classList.add('hidden');
       verCarrinho();
       atualizarContador();
     }
@@ -869,6 +1004,9 @@
       }
 
       const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+      const subtotal = carrinho.reduce((acc, item) => acc + item.preco * item.qtd, 0);
+      const { descontoTotal } = calcularDescontos(subtotal);
+      const total = Math.max(0, subtotal - descontoTotal);
 
       let mensagem = `Olá! Meu nome é ${nome}, gostaria de fazer um pedido:\n\n`;
 
@@ -880,8 +1018,13 @@
         mensagem += `\n`;
       });
 
-      const total = carrinho.reduce((acc, item) => acc + item.preco * item.qtd, 0);
-      mensagem += `\nTotal: R$ ${total.toFixed(2)}\n`;
+      mensagem += `\nSubtotal: R$ ${subtotal.toFixed(2)}\n`;
+      
+      if (cuponsAplicados.length > 0) {
+        mensagem += `Desconto: -R$ ${descontoTotal.toFixed(2)}\n`;
+      }
+      
+      mensagem += `Total: R$ ${total.toFixed(2)}\n`;
       mensagem += `\nEndereço para entrega: ${endereco}`;
       mensagem += `\nForma de Pagamento: ${formap}`;
 
@@ -889,6 +1032,10 @@
       window.open(url, "_blank");
 
       localStorage.removeItem("carrinho");
+      cuponsAplicados = [];
+      localStorage.removeItem('cuponsAplicados');
+      document.getElementById('cupom-desconto').value = '';
+      document.getElementById('cupom-mensagem').classList.add('hidden');
       fecharModalNome();
       fecharCarrinho();
       atualizarContador();

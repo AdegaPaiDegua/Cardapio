@@ -18,7 +18,7 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
     .gradient-text {
-      background: linear-gradient(to right, #c17415, #ffa200);
+      background: linear-gradient(to right, #DB7C00, #eb8c11);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -27,7 +27,7 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #22c55e;
+      background-color: #008330;
       color: white;
       padding: 12px 20px;
       border-radius: 8px;
@@ -50,7 +50,7 @@
     }
     .observacao-toggle {
       font-size: 0.8rem;
-      color: #3b82f6;
+      color: #145fd8;
       cursor: pointer;
       text-decoration: underline;
     }
@@ -84,7 +84,7 @@
   }
   
   .popup-header {
-    background: linear-gradient(135deg, #c17415 0%, #ffa200 100%);
+    background: linear-gradient(135deg, #DB7C00 0%, #eb8c11 100%);
     padding: 20px;
     position: relative;
     text-align: center;
@@ -171,7 +171,7 @@
   
   .new-price {
     font-weight: 800;
-    color: #ffa200;
+    color: #eb8c11;
     font-size: 1.2rem;
   }
   
@@ -209,7 +209,7 @@
     position: absolute;
     top: -8px;
     right: -8px;
-    background: #ffa200;
+    background: #eb8c11;
     color: black;
     font-weight: 800;
     font-size: 0.7rem;
@@ -218,7 +218,7 @@
   }
   
   .action-button {
-    background: linear-gradient(135deg, #c17415 0%, #ffa200 100%);
+    background: linear-gradient(135deg, #DB7C00 0%, #eb8c11 100%);
     color: black;
     border: none;
     width: 100%;
@@ -272,13 +272,13 @@
       outline: none;
       box-shadow: 0 0 0 2px rgba(193, 116, 21, 0.5);
     }
-    .badge-esgotado {
-  background-color: #ef4444; /* Cor vermelha (red-500) */
+ .badge-esgotado {
+  background-color: #ef4444;
   color: white;
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-size: 0.75rem; /* 12px */
-  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: bold;
 }
   </style>
 </head>
@@ -465,43 +465,42 @@
       </div>
     </div>
   </div>
-
   <script>
-    // Arrays de produtos
+        // Arrays de produtos
     const cervejas = [
-      { nome: "Heineken", preco: 5.00, descricao: "lata", imagem: "https://th.bing.com/th/id/OIP.gLGHPrgQbovtQU4wXE6hYwHaHa?rs=1&pid=ImgDetMain" },
-      { nome: "Skol", preco: 4.00, descricao: "lata", imagem: "https://armazemseuluiz.com.br/storage/app/uploads/public/637/bc8/624/637bc8624b183689503712" },
-      { nome: "Original", preco: 4.50, descricao: "lata", imagem: "https://coopsp.vtexassets.com/arquivos/ids/232285-800-800?v=638158831793470000&width=800&height=800&aspect=true" },
-      { nome: "itaipava", preco: 3.50, descricao: "lata", imagem: "https://phygital-files.mercafacil.com/bom-lugar/uploads/produto/cerveja_itaipava_pilsen_lata_350ml_39322ea1-7219-4bea-9ab6-7056b2fb940b.jpg" },
-      { nome: "Colorado Ribeirão Lager", preco: 10.00, descricao: "lata", imagem: "https://www.imigrantesbebidas.com.br/bebida/images/products/full/88937-cerveja-colorado-ribeirao-lager-lata-350ml.jpg" },
-      { nome: "Império", preco: 4.00, descricao: "lata, esgotado", imagem: "https://tfchgi.vteximg.com.br/arquivos/ids/171586-1000-1000/7898915949209.jpg?v=637783886469700000" },
-      { nome: "Brahma Duplo Malte", preco: 5.00, descricao: "lata, esgotado", imagem: "https://lelecodelivery.com.br/wp-content/uploads/2020/10/BRAHMA-DUPLO-MALTE-1024x1024.png" },
-      { nome: "Amstel", preco: 3.50, descricao: "lata", imagem: "https://static.paodeacucar.com/img/uploads/1/498/24656498.jpg" },
+      { nome: "Heineken", preco: 5.00, descricao: "lata", imagem: "https://a.imagem.app/B5wme3.jpeg" },
+      { nome: "Skol", preco: 4.00, descricao: "lata", imagem: "https://a.imagem.app/B5waBN.png" },
+      { nome: "Original", preco: 4.50, descricao: "lata", imagem: "https://a.imagem.app/B5wfXC.png" },
+      { nome: "itaipava", preco: 3.50, descricao: "lata", imagem: "https://a.imagem.app/B5wyRY.png" },
+      { nome: "Colorado Ribeirão Lager", preco: 10.00, descricao: "lata", imagem: "https://a.imagem.app/B5wDpa.png" },
+      { nome: "Império", preco: 4.00, descricao: "lata, esgotado", imagem: "https://a.imagem.app/B5wOe9.png" },
+      { nome: "Brahma Duplo Malte", preco: 5.00, descricao: "lata, esgotado", imagem: "https://a.imagem.app/B5wWLk.png" },
+      { nome: "Amstel", preco: 3.50, descricao: "lata", imagem: "https://a.imagem.app/B5wpfV.png" },
     ];
 
     const longnecks = [
-      { nome: "Heineken Long", preco: 10.00, descricao: "longneck", imagem: "https://www.imigrantesbebidas.com.br/bebida/images/products/full/222-cerveja-heineken-long-neck-330ml.jpg" },
-      { nome: "Corona Long", preco: 10.00, descricao: "longneck", imagem: "https://t3.ftcdn.net/jpg/03/17/49/16/360_F_317491690_r9vvpVqgOeuuvjQWDReJwOxGTYJWGPdy.jpg" },
-      { nome: "Estrella Galicia Long", preco: 10.00, descricao: "longneck, esgotado", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Px6SHQLIlOwnn-4-kTlJBFN8TmUgZFXgfA&s" },
+      { nome: "Heineken Long", preco: 10.00, descricao: "longneck", imagem: "https://a.imagem.app/B5Cb5G.png" },
+      { nome: "Corona Long", preco: 10.00, descricao: "longneck", imagem: "https://a.imagem.app/B5CoMm.png" },
+      { nome: "Estrella Galicia Long", preco: 10.00, descricao: "longneck, esgotado", imagem: "https://a.imagem.app/B5CBGX.png" },
     ];
 
     const caixas = [
-      { nome: "Caixa Heineken", preco: 35.00, descricao: "6 latas", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-BpZjvyKcEQZqVhORefgHg7sPUUjcqNg_JQ&s" },
-      { nome: "Caixa Budweiser", preco: 32.00, descricao: "12 latas, esgotado", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbmMWVZa-NZ6I1FqbP0dcRJCuq1h-rDljUDQ&s" },
-      { nome: "Caixa Império", preco: 45.00, descricao: "12 latas, esgotado", imagem: "https://th.bing.com/th/id/R.a1a367f44bc3b90244f47d3013ce7fe5?rik=jgM5vE7P0vt9eQ&riu=http%3a%2f%2fio.convertiez.com.br%2fm%2fsuperpaguemenos%2fshop%2fproducts%2fimages%2f55388%2fsmall%2fcerveja-imperio-puro-malte-350ml-com-15-unidades_103811.png&ehk=awY2mS170m2G6hj9OZe%2frVq0eNNA5mxul6QCY4HrMyw%3d&risl=&pid=ImgRaw&r=0 " },
-      { nome: "Caixa Original", preco: 32.00, descricao: "12 latas", imagem: "https://static.paodeacucar.com/img/uploads/1/133/23981133.jpg?im=Resize,width=200" },
-      { nome: "Caixa Brahma Duplo Malte", preco: 50.00, descricao: "12 latas", imagem: "https://http2.mlstatic.com/D_Q_NP_981955-MLU71273938267_082023-O.webphttps://http2.mlstatic.com/D_Q_NP_981955-MLU71273938267_082023-O.webp" },
-      { nome: "Caixa Skol", preco: 45.00, descricao: "12 latas", imagem: "https://trend-files-public-prod.s3.us-east-1.amazonaws.com/thumbs/840-0ace217d-55a6-437c-a8fb-b3980213435f.jpg" },
-      { nome: "Caixa Petra", preco: 35.00, descricao: "12 latas, esgotado", imagem: "https://down-br.img.susercontent.com/file/1ab035353f4e835d76425f4f8a7e7ec0" },
-      { nome: "Caixa itaipava", preco: 35.00, descricao: "12 latas, esgotado", imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRv0PGrZhHohVu1IcT3xXdbmGIvPFl0Enh0g&s" },
+      { nome: "Caixa Heineken", preco: 35.00, descricao: "6 latas", imagem: "https://a.imagem.app/B5CGxb.png" },
+      { nome: "Caixa Budweiser", preco: 32.00, descricao: "12 latas, esgotado", imagem: "https://a.imagem.app/B5Ch81.png" },
+      { nome: "Caixa Império", preco: 45.00, descricao: "12 latas, esgotado", imagem: "https://a.imagem.app/B5CkeW.png" },
+      { nome: "Caixa Original", preco: 32.00, descricao: "12 latas", imagem: "https://a.imagem.app/B5Cn5r.png" },
+      { nome: "Caixa Brahma Duplo Malte", preco: 50.00, descricao: "12 latas", imagem: "https://a.imagem.app/B5C0V2.png" },
+      { nome: "Caixa Skol", preco: 45.00, descricao: "12 latas", imagem: "https://a.imagem.app/B5CeGP.png" },
+      { nome: "Caixa Petra", preco: 35.00, descricao: "12 latas, esgotado", imagem: "https://a.imagem.app/B5Csxl.png" },
+      { nome: "Caixa itaipava", preco: 35.00, descricao: "12 latas, esgotado", imagem: "https://a.imagem.app/B5C1ZS.png" },
 
     ];
 
     const whiskys = [
-      { nome: "Red Label 1l", preco: 110.00, descricao: "destilados", imagem: "https://i5.walmartimages.com/asr/70d063f5-8328-44b2-91ee-9eec40f5908c_2.53a1ae92e78bba8bafae76f4d204b660.jpeg" },
-      { nome: "Jack Daniel s 1l", preco: 170.00, descricao: "destilados", imagem: "https://imagevault.skulibrary.com/ColesLiquor/NoPrefix/e2520ee2b408c79be0916bdd062e372f1423c031/images/2400/id/CLG-8331431-1.jpg" },
-      { nome: "Jack Daniel s Fire 1l", preco: 170.00, descricao: "destilados, esgotado", imagem: "https://cdn.myshoptet.com/usr/www.bumbaj.sk/user/shop/big/519_jack-daniel-s-fire-35--0-70-l.jpg?6362878e" },
-      { nome: "Jack Daniel s Honey 700ml", preco: 130.00, descricao: "destilados, esgotado", imagem: "https://www.casadabebida.com.br/img/products/4277/000.webp" },
+        { nome: "Jack Daniel s 1l", preco: 170.00, descricao: "destilados", imagem: "https://a.imagem.app/B5Ci8v.png" },
+        { nome: "Jack Daniel s Fire 1l", preco: 170.00, descricao: "destilados, esgotado", imagem: "https://a.imagem.app/B5CFsT.png" },
+        { nome: "Jack Daniel s Honey 700ml", preco: 130.00, descricao: "destilados, esgotado", imagem: "https://a.imagem.app/B5CXt3.png" },
+      { nome: "Red Label 1l", preco: 110.00, descricao: "destilados", imagem: "https://a.imagem.app/B5C5He.png" },
       { nome: "Chanceler 1l", preco: 130.00, descricao: "destilados", imagem: "https://images.tcdn.com.br/img/img_prod/1199398/whisky_chanceler_1l_407_1_5a4509a4ea0d4b253fceff59ba30c4fc.jpeg" },
       { nome: "Cavalo Branco 1l", preco: 130.00, descricao: "destilados", imagem: "https://tse1.mm.bing.net/th/id/OIP.mAanFdmAlKAaVmo5MMQVDAHaFX?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" },
     ];
@@ -590,465 +589,531 @@
       { nome: "Gelo de Coco", preco: 3.50, imagem: "https://tse2.mm.bing.net/th/id/OIP.4h99x3CqzjEUNXFhRTzXUgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" },
     ];
 
-    // Juntando todos os produtos em um array para busca
-    const todosProdutos = [
-      ...cervejas,
-      ...longnecks,
-      ...caixas,
-      ...whiskys,
-      ...Combos,
-      ...energeticos,
-      ...gins,
-      ...cachaças,
-      ...Doses,
-      ...refrigerantes,
-      ...Tabacaria,
-      ...Salgadinhos,
-      ...Gelos,
-      ...vodkas
-    ];
+// Juntando todos os produtos em um array para busca
+const todosProdutos = [
+  ...cervejas,
+  ...longnecks,
+  ...caixas,
+  ...whiskys,
+  ...Combos,
+  ...energeticos,
+  ...gins,
+  ...cachaças,
+  ...Doses,
+  ...refrigerantes,
+  ...Tabacaria,
+  ...Salgadinhos,
+  ...Gelos,
+  ...vodkas
+];
 
-    // Elementos do DOM
-    const contadorCarrinho = document.getElementById("contador-carrinho");
-    const listaCarrinho = document.getElementById("lista-carrinho");
-    const subtotalCarrinho = document.getElementById("subtotal-carrinho");
-    const descontoContainer = document.getElementById("desconto-container");
-    const descontoValor = document.getElementById("desconto-valor");
-    const totalCarrinho = document.getElementById("total-carrinho");
-    const modalCarrinho = document.getElementById("modal-carrinho");
-    const modalNome = document.getElementById("modal-nome");
-    const welcomePopup = document.getElementById("welcome-popup");
+// Elementos do DOM
+const contadorCarrinho = document.getElementById("contador-carrinho");
+const listaCarrinho = document.getElementById("lista-carrinho");
+const subtotalCarrinho = document.getElementById("subtotal-carrinho");
+const descontoContainer = document.getElementById("desconto-container");
+const descontoValor = document.getElementById("desconto-valor");
+const totalCarrinho = document.getElementById("total-carrinho");
+const modalCarrinho = document.getElementById("modal-carrinho");
+const modalNome = document.getElementById("modal-nome");
+const welcomePopup = document.getElementById("welcome-popup");
 
-    // Cupons pré-definidos (adicionados diretamente no código)
-    const cupons = [
-      { codigo: "PARÁ15", tipo: "porcentagem", valor: 16, ativo: true },
-      { codigo: "PARCEIRO2", tipo: "porcentagem", valor: 19, ativo: true },
-      { codigo: "FERIADO25", tipo: "porcentagem", valor: 15, ativo: true },
+// Cupons pré-definidos (adicionados diretamente no código)
+const cupons = [
+  { codigo: "PARÁ15", tipo: "porcentagem", valor: 16, ativo: true },
+  { codigo: "PARCEIRO2", tipo: "porcentagem", valor: 19, ativo: true },
+  { codigo: "FERIADO25", tipo: "porcentagem", valor: 15, ativo: true },
+];
 
-    ];
+// Variável para armazenar cupons aplicados
+let cuponsAplicados = JSON.parse(localStorage.getItem('cuponsAplicados')) || [];
 
-    // Variável para armazenar cupons aplicados
-    let cuponsAplicados = JSON.parse(localStorage.getItem('cuponsAplicados')) || [];
+// Mostrar popup quando a página carregar
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(() => {
+    welcomePopup.classList.remove('hidden');
+  }, 1000);
+  
+  // Renderiza todos os produtos inicialmente
+  renderizarTodosProdutos();
+});
 
-    // Mostrar popup quando a página carregar
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(() => {
-        welcomePopup.classList.remove('hidden');
-      }, 1000);
+function fecharPopup() {
+  welcomePopup.classList.add('hidden');
+}
+
+// Função para aplicar cupom de desconto
+function aplicarCupom() {
+  const cupomInput = document.getElementById('cupom-desconto').value.trim().toUpperCase();
+  const mensagemCupom = document.getElementById('cupom-mensagem');
+  
+  if (!cupomInput) {
+    mensagemCupom.textContent = 'Digite um cupom válido';
+    mensagemCupom.className = 'text-sm mb-2 text-red-600';
+    mensagemCupom.classList.remove('hidden');
+    return;
+  }
+  
+  // Verifica se o cupom existe e está ativo
+  const cupom = cupons.find(c => c.codigo === cupomInput && c.ativo);
+  
+  if (!cupom) {
+    mensagemCupom.textContent = 'Cupom inválido ou inativo';
+    mensagemCupom.className = 'text-sm mb-2 text-red-600';
+    mensagemCupom.classList.remove('hidden');
+    return;
+  }
+  
+  // Verifica se o cupom já foi aplicado
+  if (cuponsAplicados.some(c => c.codigo === cupomInput)) {
+    mensagemCupom.textContent = 'Este cupom já foi aplicado';
+    mensagemCupom.className = 'text-sm mb-2 text-yellow-600';
+    mensagemCupom.classList.remove('hidden');
+    return;
+  }
+  
+  // Adiciona o cupom à lista de cupons aplicados
+  cuponsAplicados.push(cupom);
+  localStorage.setItem('cuponsAplicados', JSON.stringify(cuponsAplicados));
+  
+  mensagemCupom.textContent = `Cupom ${cupom.codigo} aplicado com sucesso!`;
+  mensagemCupom.className = 'text-sm mb-2 text-green-600';
+  mensagemCupom.classList.remove('hidden');
+  
+  // Limpa o campo de cupom
+  document.getElementById('cupom-desconto').value = '';
+  
+  // Atualiza o carrinho para mostrar o desconto
+  verCarrinho();
+}
+
+function calcularDescontos(subtotal) {
+  let descontoTotal = 0;
+  let descontoPorcentagem = 0;
+  let descontoValorFixo = 0;
+  
+  // Primeiro aplica os descontos de valor fixo
+  cuponsAplicados.forEach(cupom => {
+    if (cupom.tipo === 'valor') {
+      descontoValorFixo += cupom.valor;
+    }
+  });
+  
+  // Limita o desconto de valor fixo ao subtotal
+  descontoValorFixo = Math.min(descontoValorFixo, subtotal);
+  
+  // Aplica os descontos percentuais sobre o valor restante
+  const subtotalAposFixo = subtotal - descontoValorFixo;
+  
+  cuponsAplicados.forEach(cupom => {
+    if (cupom.tipo === 'porcentagem') {
+      descontoPorcentagem += cupom.valor;
+    }
+  });
+  
+  // Limita o desconto percentual a 100%
+  descontoPorcentagem = Math.min(descontoPorcentagem, 100);
+  
+  const descontoPorcentagemValor = subtotalAposFixo * (descontoPorcentagem / 100);
+  
+  descontoTotal = descontoValorFixo + descontoPorcentagemValor;
+  
+  return {
+    descontoTotal,
+    descontoPorcentagem,
+    descontoValorFixo
+  };
+}
+
+// Função de busca de produtos melhorada com busca por categoria
+function buscarProdutos() {
+  const termoBusca = document.getElementById('busca-produto').value.toLowerCase().trim();
+  
+  // Não faz busca se tiver menos de 3 caracteres
+  if (termoBusca.length < 3) {
+    // Mostra todas as categorias se a busca for vazia ou com menos de 3 letras
+    document.querySelectorAll('[id$="s"]').forEach(categoria => {
+      categoria.classList.remove('hidden-category');
+      categoria.previousElementSibling.classList.remove('hidden-category');
+    });
+    
+    // Remove resultados de busca anteriores
+    const resultadosAnteriores = document.getElementById('resultados-busca-container');
+    if (resultadosAnteriores) {
+      resultadosAnteriores.remove();
+    }
+    return;
+  }
+
+  // Esconde todas as categorias
+  document.querySelectorAll('[id$="s"]').forEach(categoria => {
+    categoria.classList.add('hidden-category');
+    categoria.previousElementSibling.classList.add('hidden-category');
+  });
+
+  // Mapeamento de termos de busca para categorias
+  const categoriasMap = {
+    'cerveja': 'cervejas',
+    'cervejas': 'cervejas',
+    'lata': 'cervejas',
+    'latas': 'cervejas',
+    'longneck': 'longnecks',
+    'longnecks': 'longnecks',
+    'caixa': 'caixas',
+    'caixas': 'caixas',
+    'whisky': 'whiskys',
+    'whiskys': 'whiskys',
+    'combo': 'combos',
+    'combos': 'combos',
+    'energetico': 'energeticos',
+    'energeticos': 'energeticos',
+    'gin': 'gins',
+    'gins': 'gins',
+    'cachaça': 'cachaças',
+    'cachaças': 'cachaças',
+    'dose': 'doses',
+    'doses': 'doses',
+    'refri': 'refrigerantes',
+    'refrigerante': 'refrigerantes',
+    'refrigerantes': 'refrigerantes',
+    'tabaco': 'tabacaria',
+    'tabacaria': 'tabacaria',
+    'salgado': 'salgadinhos',
+    'salgadinho': 'salgadinhos',
+    'salgadinhos': 'salgadinhos',
+    'gelo': 'gelos',
+    'gelos': 'gelos',
+    'vodka': 'vodkas',
+    'vodkas': 'vodkas'
+  };
+
+  // Verifica se o termo de busca corresponde a uma categoria
+  const categoriaEncontrada = categoriasMap[termoBusca];
+
+  if (categoriaEncontrada) {
+    // Mostra apenas a categoria correspondente
+    document.getElementById(categoriaEncontrada).classList.remove('hidden-category');
+    document.getElementById(categoriaEncontrada).previousElementSibling.classList.remove('hidden-category');
+    
+    // Remove resultados de busca anteriores
+    const resultadosAnteriores = document.getElementById('resultados-busca-container');
+    if (resultadosAnteriores) {
+      resultadosAnteriores.remove();
+    }
+    return;
+  }
+
+  // Busca normal por produtos
+  const resultados = todosProdutos.filter(produto => 
+    produto.nome.toLowerCase().includes(termoBusca) ||
+    (produto.descricao && produto.descricao.toLowerCase().includes(termoBusca)))
+    .sort((a, b) => {
+      const aStartsWith = a.nome.toLowerCase().startsWith(termoBusca);
+      const bStartsWith = b.nome.toLowerCase().startsWith(termoBusca);
       
-      // Renderiza todos os produtos inicialmente
-      renderizarTodosProdutos();
+      if (aStartsWith && !bStartsWith) return -1;
+      if (!aStartsWith && bStartsWith) return 1;
+      return 0;
     });
 
-    function fecharPopup() {
-      welcomePopup.classList.add('hidden');
-    }
+  // Remove resultados anteriores
+  const resultadosAnteriores = document.getElementById('resultados-busca-container');
+  if (resultadosAnteriores) {
+    resultadosAnteriores.remove();
+  }
 
-    // Função para aplicar cupom de desconto
-    function aplicarCupom() {
-      const cupomInput = document.getElementById('cupom-desconto').value.trim().toUpperCase();
-      const mensagemCupom = document.getElementById('cupom-mensagem');
-      
-      if (!cupomInput) {
-        mensagemCupom.textContent = 'Digite um cupom válido';
-        mensagemCupom.className = 'text-sm mb-2 text-red-600';
-        mensagemCupom.classList.remove('hidden');
-        return;
-      }
-      
-      // Verifica se o cupom existe e está ativo
-      const cupom = cupons.find(c => c.codigo === cupomInput && c.ativo);
-      
-      if (!cupom) {
-        mensagemCupom.textContent = 'Cupom inválido ou inativo';
-        mensagemCupom.className = 'text-sm mb-2 text-red-600';
-        mensagemCupom.classList.remove('hidden');
-        return;
-      }
-      
-      // Verifica se o cupom já foi aplicado
-      if (cuponsAplicados.some(c => c.codigo === cupomInput)) {
-        mensagemCupom.textContent = 'Este cupom já foi aplicado';
-        mensagemCupom.className = 'text-sm mb-2 text-yellow-600';
-        mensagemCupom.classList.remove('hidden');
-        return;
-      }
-      
-      // Adiciona o cupom à lista de cupons aplicados
-      cuponsAplicados.push(cupom);
-      localStorage.setItem('cuponsAplicados', JSON.stringify(cuponsAplicados));
-      
-      mensagemCupom.textContent = `Cupom ${cupom.codigo} aplicado com sucesso!`;
-      mensagemCupom.className = 'text-sm mb-2 text-green-600';
-      mensagemCupom.classList.remove('hidden');
-      
-      // Limpa o campo de cupom
-      document.getElementById('cupom-desconto').value = '';
-      
-      // Atualiza o carrinho para mostrar o desconto
-      verCarrinho();
-    }
+  const container = document.createElement('div');
+  container.id = 'resultados-busca-container';
+  
+  if (resultados.length > 0) {
+    const resultadosContainer = document.createElement('div');
+    resultadosContainer.id = 'resultados-busca';
+    resultadosContainer.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10';
+    
+    // Título com contagem de resultados
+    const titulo = document.createElement('h2');
+    titulo.className = 'text-2xl font-bold mb-4 text-amber-600';
+    titulo.textContent = `${resultados.length} resultado(s) para "${termoBusca}"`;
+    container.appendChild(titulo);
+    
+    // Adiciona os produtos encontrados
+    resultados.forEach(produto => {
+      resultadosContainer.innerHTML += `
+        <div class="glass p-6 rounded-2xl shadow-xl hover:scale-[1.02] transition-transform flex flex-col">
+          <div class="h-48 w-full mb-4 overflow-hidden rounded-xl">
+            <img src="${produto.imagem}" 
+                 class="w-full h-full object-cover" 
+                 alt="${produto.nome}"
+                 onerror="this.src='https://via.placeholder.com/300x300?text=Imagem+Não+Disponível'">
+          </div>
+          <div class="flex-grow">
+            <h3 class="text-xl font-bold mb-2">${produto.nome}</h3>
+            <p class="text-gray-300 mb-2">${produto.descricao || "Produto gelado e pronto para você!"}</p>
+          </div>
+          <div class="flex justify-between items-center mt-auto pt-2">
+            <span class="text-lg font-semibold text-amber-600">R$ ${produto.preco.toFixed(2)}</span>
+            <button onclick="adicionarCarrinho('${produto.nome.replace(/'/g, "\\'")}', ${produto.preco})" 
+                    class="bg-amber-600 hover:bg-amber-500 text-black px-4 py-1.5 rounded-xl">Pedir</button>
+          </div>
+        </div>
+      `;
+    });
+    
+    container.appendChild(resultadosContainer);
+  } else {
+    // Mensagem quando não há resultados
+    const mensagem = document.createElement('div');
+    mensagem.className = 'text-center py-8 text-gray-400';
+    mensagem.textContent = `Nenhum produto encontrado para "${termoBusca}"`;
+    container.appendChild(mensagem);
+  }
+  
+  // Insere os resultados no início da lista de produtos
+  const produtosSection = document.getElementById('produtos-container');
+  produtosSection.insertBefore(container, produtosSection.firstChild);
+}
 
-    function calcularDescontos(subtotal) {
-      let descontoTotal = 0;
-      let descontoPorcentagem = 0;
-      let descontoValorFixo = 0;
-      
-      // Primeiro aplica os descontos de valor fixo
-      cuponsAplicados.forEach(cupom => {
-        if (cupom.tipo === 'valor') {
-          descontoValorFixo += cupom.valor;
-        }
-      });
-      
-      // Limita o desconto de valor fixo ao subtotal
-      descontoValorFixo = Math.min(descontoValorFixo, subtotal);
-      
-      // Aplica os descontos percentuais sobre o valor restante
-      const subtotalAposFixo = subtotal - descontoValorFixo;
-      
-      cuponsAplicados.forEach(cupom => {
-        if (cupom.tipo === 'porcentagem') {
-          descontoPorcentagem += cupom.valor;
-        }
-      });
-      
-      // Limita o desconto percentual a 100%
-      descontoPorcentagem = Math.min(descontoPorcentagem, 100);
-      
-      const descontoPorcentagemValor = subtotalAposFixo * (descontoPorcentagem / 100);
-      
-      descontoTotal = descontoValorFixo + descontoPorcentagemValor;
-      
-      return {
-        descontoTotal,
-        descontoPorcentagem,
-        descontoValorFixo
-      };
-    }
+// Função para renderizar todos os produtos nas categorias
+function renderizarTodosProdutos() {
+  renderCategoria(cervejas, "cervejas");
+  renderCategoria(longnecks, "longnecks");
+  renderCategoria(caixas, "caixas");
+  renderCategoria(whiskys, "whiskys");
+  renderCategoria(Combos, "combos");
+  renderCategoria(energeticos, "energeticos");
+  renderCategoria(gins, "gins");
+  renderCategoria(cachaças, "cachaças");
+  renderCategoria(Doses, "doses");
+  renderCategoria(refrigerantes, "refrigerantes");
+  renderCategoria(Tabacaria, "tabacaria");
+  renderCategoria(Salgadinhos, "salgadinhos");
+  renderCategoria(Gelos, "gelos");
+  renderCategoria(vodkas, "vodkas");
+}
 
-    // Função de busca de produtos melhorada
-    function buscarProdutos() {
-      const termoBusca = document.getElementById('busca-produto').value.toLowerCase().trim();
-      
-      // Não faz busca se tiver menos de 3 caracteres
-      if (termoBusca.length < 3) {
-        // Mostra todas as categorias se a busca for vazia ou com menos de 3 letras
-        document.querySelectorAll('[id$="s"]').forEach(categoria => {
-          categoria.classList.remove('hidden-category');
-          categoria.previousElementSibling.classList.remove('hidden-category');
-        });
-        
-        // Remove resultados de busca anteriores
-        const resultadosAnteriores = document.getElementById('resultados-busca-container');
-        if (resultadosAnteriores) {
-          resultadosAnteriores.remove();
-        }
-        return;
-      }
-
-      // Esconde todas as categorias
-      document.querySelectorAll('[id$="s"]').forEach(categoria => {
-        categoria.classList.add('hidden-category');
-        categoria.previousElementSibling.classList.add('hidden-category');
-      });
-
-      // Busca por correspondência parcial em nome ou descrição
-      const resultados = todosProdutos.filter(produto => 
-        produto.nome.toLowerCase().includes(termoBusca) ||
-        (produto.descricao && produto.descricao.toLowerCase().includes(termoBusca)))
-        .sort((a, b) => {
-          // Ordena por melhor correspondência (começa com o termo)
-          const aStartsWith = a.nome.toLowerCase().startsWith(termoBusca);
-          const bStartsWith = b.nome.toLowerCase().startsWith(termoBusca);
-          
-          if (aStartsWith && !bStartsWith) return -1;
-          if (!aStartsWith && bStartsWith) return 1;
-          return 0;
-        });
-
-      // Remove resultados anteriores
-      const resultadosAnteriores = document.getElementById('resultados-busca-container');
-      if (resultadosAnteriores) {
-        resultadosAnteriores.remove();
-      }
-
-      const container = document.createElement('div');
-      container.id = 'resultados-busca-container';
-      
-      if (resultados.length > 0) {
-        const resultadosContainer = document.createElement('div');
-        resultadosContainer.id = 'resultados-busca';
-        resultadosContainer.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10';
-        
-        // Título com contagem de resultados
-        const titulo = document.createElement('h2');
-        titulo.className = 'text-2xl font-bold mb-4 text-amber-600';
-        titulo.textContent = `${resultados.length} resultado(s) para "${termoBusca}"`;
-        container.appendChild(titulo);
-        
-        // Adiciona os produtos encontrados
-        resultados.forEach(produto => {
-          resultadosContainer.innerHTML += `
-            <div class="glass p-6 rounded-2xl shadow-xl hover:scale-[1.02] transition-transform">
-              <img src="${produto.imagem}" class="rounded-xl mb-4 w-full h-40 object-cover" alt="${produto.nome}">
-              <h3 class="text-xl font-bold mb-2">${produto.nome}</h3>
-              <p class="text-gray-300 mb-2">${produto.descricao || "Produto gelado e pronto para você!"}</p>
-              <div class="flex justify-between items-center">
-                <span class="text-lg font-semibold text-amber-600">R$ ${produto.preco.toFixed(2)}</span>
-                <button onclick="adicionarCarrinho('${produto.nome.replace(/'/g, "\\'")}', ${produto.preco})" class="bg-amber-600 hover:bg-amber-500 text-black px-4 py-1.5 rounded-xl">Pedir</button>
-              </div>
-            </div>
-          `;
-        });
-        
-        container.appendChild(resultadosContainer);
-      } else {
-        // Mensagem quando não há resultados
-        const mensagem = document.createElement('div');
-        mensagem.className = 'text-center py-8 text-gray-400';
-        mensagem.textContent = `Nenhum produto encontrado para "${termoBusca}"`;
-        container.appendChild(mensagem);
-      }
-      
-      // Insere os resultados no início da lista de produtos
-      const produtosSection = document.getElementById('produtos-container');
-      produtosSection.insertBefore(container, produtosSection.firstChild);
-    }
-
-    // Função para renderizar todos os produtos nas categorias
-    function renderizarTodosProdutos() {
-      renderCategoria(cervejas, "cervejas");
-      renderCategoria(longnecks, "longnecks");
-      renderCategoria(caixas, "caixas");
-      renderCategoria(whiskys, "whiskys");
-      renderCategoria(Combos, "combos");
-      renderCategoria(energeticos, "energeticos");
-      renderCategoria(gins, "gins");
-      renderCategoria(cachaças, "cachaças");
-      renderCategoria(Doses, "doses");
-      renderCategoria(refrigerantes, "refrigerantes");
-      renderCategoria(Tabacaria, "tabacaria");
-      renderCategoria(Salgadinhos, "salgadinhos");
-      renderCategoria(Gelos, "gelos");
-      renderCategoria(vodkas, "vodkas");
-    }
-
-    const renderCategoria = (produtos, containerId) => {
+const renderCategoria = (produtos, containerId) => {
   const container = document.getElementById(containerId);
   produtos.forEach((p, i) => {
     const esgotado = p.descricao && p.descricao.toLowerCase().includes("esgotado");
     container.innerHTML += `
-      <div class="glass p-6 rounded-2xl shadow-xl hover:scale-[1.02] transition-transform flex flex-col justify-between">
-        <div>
-          <img src="${p.imagem}" class="rounded-xl mb-4 w-full h-40 object-cover" alt="${p.nome}">
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="text-xl font-bold">${p.nome}</h3>
-            ${esgotado ? '<span class="badge-esgotado">Esgotado</span>' : ''}
+      <div class="glass p-6 rounded-2xl shadow-xl hover:scale-[1.02] transition-transform flex flex-col">
+        <div class="flex flex-col h-full">
+          <!-- Container da imagem com altura fixa -->
+          <div class="h-48 w-48 mb-4 overflow-hidden rounded-xl">
+            <img src="${p.imagem}" 
+                 class="w-full h-full object-cover" 
+                 alt="${p.nome}"
+                 onerror="this.src='https://via.placeholder.com/300x300?text=Imagem+Não+Disponível'">
           </div>
-          <p class="text-gray-300 mb-2 h-10">${p.descricao || "Produto gelado e pronto para você!"}</p>
-        </div>
-        <div class="flex justify-between items-center mt-auto">
-          <span class="text-lg font-semibold text-yellow-400">R$ ${p.preco.toFixed(2)}</span>
-          ${esgotado 
-            ? '<button class="bg-gray-500 text-white px-4 py-1.5 rounded-xl cursor-not-allowed" disabled>Esgotado</button>' 
-            : `<button onclick="adicionarCarrinho('${p.nome}', ${p.preco})" class="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-1.5 rounded-xl">Pedir</button>`
-          }
+          <div class="flex-grow">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold">${p.nome}</h3>
+              ${esgotado ? '<span class="badge-esgotado">Esgotado</span>' : ''}
+            </div>
+            <p class="text-gray-300 mb-2">${p.descricao || "Produto gelado e pronto para você!"}</p>
+          </div>
+          <div class="flex justify-between items-center mt-auto pt-2">
+            <span class="text-lg font-semibold text-yellow-400">R$ ${p.preco.toFixed(2)}</span>
+            ${esgotado 
+              ? '<button class="bg-gray-500 text-white px-4 py-1.5 rounded-xl cursor-not-allowed" disabled>Esgotado</button>' 
+              : `<button onclick="adicionarCarrinho('${p.nome}', ${p.preco})" class="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-1.5 rounded-xl">Pedir</button>`
+            }
+          </div>
         </div>
       </div>
     `;
   });
 };
-    function adicionarCarrinho(nome, preco) {
-      let carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
-      const existente = carrinho.find(item => item.nome === nome);
-      if (existente) {
-        existente.qtd++;
-      } else {
-        carrinho.push({ nome, preco, qtd: 1, observacao: "" });
-      }
-      localStorage.setItem("carrinho", JSON.stringify(carrinho));
-      atualizarContador();
-      mostrarToast();
-    }
 
-    function atualizarContador() {
-      let carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
-      const totalItens = carrinho.reduce((acc, item) => acc + item.qtd, 0);
-      contadorCarrinho.textContent = totalItens;
-    }
+function adicionarCarrinho(nome, preco) {
+  let carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+  const existente = carrinho.find(item => item.nome === nome);
+  if (existente) {
+    existente.qtd++;
+  } else {
+    carrinho.push({ nome, preco, qtd: 1, observacao: "" });
+  }
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  atualizarContador();
+  mostrarToast();
+}
 
-    function verCarrinho() {
-      let carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
-      listaCarrinho.innerHTML = "";
-      let subtotal = 0;
-      
-      carrinho.forEach((item, i) => {
-        subtotal += item.preco * item.qtd;
-        
-        const observacaoId = `observacao-${i}`;
-        const temObservacao = item.observacao && item.observacao.trim() !== "";
-        
-        listaCarrinho.innerHTML += `
-          <li class="border-b pb-4">
-            <div class="flex justify-between items-start">
-              <div class="w-1/2">
-                <span class="font-medium">${item.nome}</span>
-                ${temObservacao ? `<div class="text-sm text-gray-600 mt-1">Obs: ${item.observacao}</div>` : ''}
-              </div>
-              <div class="flex items-center gap-2">
-                <button onclick="alterarQtd(${i}, -1)" class="bg-gray-200 px-2 rounded">−</button>
-                <span>${item.qtd}</span>
-                <button onclick="alterarQtd(${i}, 1)" class="bg-gray-200 px-2 rounded">+</button>
-              </div>
-              <span class="w-20 text-right">R$ ${(item.preco * item.qtd).toFixed(2)}</span>
-              <button onclick="removerItem(${i})" class="text-red-500 ml-2 font-bold">×</button>
-            </div>
-            
-            <div class="mt-2">
-              <span class="observacao-toggle" onclick="toggleObservacao('${observacaoId}')">
-                ${temObservacao ? 'Editar observação' : 'Adicionar observação'}
-              </span>
-              <div id="${observacaoId}" class="observacao-input hidden">
-                <input type="text" 
-                       value="${item.observacao || ''}" 
-                       placeholder="Ex: sabor tropical, gelo maracuja, etc." 
-                       class="w-full p-2 border rounded text-sm"
-                       onchange="salvarObservacao(${i}, this.value)">
-              </div>
-            </div>
-          </li>
-        `;
-      });
-      
-      // Atualiza os valores com desconto
-      document.getElementById('subtotal-carrinho').textContent = "R$ " + subtotal.toFixed(2);
-      
-      const { descontoTotal } = calcularDescontos(subtotal);
-      const total = Math.max(0, subtotal - descontoTotal);
-      
-      if (descontoTotal > 0) {
-        document.getElementById('desconto-container').classList.remove('hidden');
-        document.getElementById('desconto-valor').textContent = "-R$ " + descontoTotal.toFixed(2);
-        document.getElementById('total-carrinho').textContent = "R$ " + total.toFixed(2);
-      } else {
-        document.getElementById('desconto-container').classList.add('hidden');
-        document.getElementById('total-carrinho').textContent = "R$ " + subtotal.toFixed(2);
-      }
-      
-      modalCarrinho.classList.remove("hidden");
-    }
+function atualizarContador() {
+  let carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+  const totalItens = carrinho.reduce((acc, item) => acc + item.qtd, 0);
+  contadorCarrinho.textContent = totalItens;
+}
 
-    function toggleObservacao(id) {
-      const element = document.getElementById(id);
-      element.classList.toggle("hidden");
-      if (!element.classList.contains("hidden")) {
-        element.querySelector("input").focus();
-      }
-    }
-
-    function salvarObservacao(index, observacao) {
-      let carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
-      if (index >= 0 && index < carrinho.length) {
-        carrinho[index].observacao = observacao;
-        localStorage.setItem("carrinho", JSON.stringify(carrinho));
-        verCarrinho();
-      }
-    }
-
-    function alterarQtd(index, delta) {
-      let carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
-      carrinho[index].qtd += delta;
-      if (carrinho[index].qtd <= 0) carrinho.splice(index, 1);
-      localStorage.setItem("carrinho", JSON.stringify(carrinho));
-      verCarrinho();
-      atualizarContador();
-    }
-
-    function removerItem(index) {
-      let carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
-      carrinho.splice(index, 1);
-      localStorage.setItem("carrinho", JSON.stringify(carrinho));
-      verCarrinho();
-      atualizarContador();
-    }
-
-    function limparCarrinho() {
-      localStorage.removeItem("carrinho");
-      cuponsAplicados = [];
-      localStorage.removeItem('cuponsAplicados');
-      document.getElementById('cupom-desconto').value = '';
-      document.getElementById('cupom-mensagem').classList.add('hidden');
-      verCarrinho();
-      atualizarContador();
-    }
-
-    function fecharCarrinho() {
-      modalCarrinho.classList.add("hidden");
-    }
-
-    function abrirModalNome() {
-      modalNome.classList.remove("hidden");
-    }
-
-    function fecharModalNome() {
-      modalNome.classList.add("hidden");
-    }
-
-    function finalizarPedido() {
-      const nome = document.getElementById("nome-cliente").value.trim();
-      const endereco = document.getElementById("endereco-cliente").value.trim();
-      const formap = document.getElementById("forma-pagamento").value.trim();
-
-      if (!nome || !endereco || !formap) {
-        alert("Por favor, preencha seu nome, endereço e forma de pagamento.");
-        return;
-      }
-
-      const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
-      const subtotal = carrinho.reduce((acc, item) => acc + item.preco * item.qtd, 0);
-      const { descontoTotal } = calcularDescontos(subtotal);
-      const total = Math.max(0, subtotal - descontoTotal);
-
-      let mensagem = `Olá! Meu nome é ${nome}, gostaria de fazer um pedido:\n\n`;
-
-      carrinho.forEach(item => {
-        mensagem += `- ${item.qtd}x ${item.nome} (R$ ${(item.preco * item.qtd).toFixed(2)})`;
-        if (item.observacao && item.observacao.trim() !== "") {
-          mensagem += ` - Obs: ${item.observacao}`;
-        }
-        mensagem += `\n`;
-      });
-
-      mensagem += `\nSubtotal: R$ ${subtotal.toFixed(2)}\n`;
-      
-      if (cuponsAplicados.length > 0) {
-        mensagem += `Desconto: -R$ ${descontoTotal.toFixed(2)}\n`;
-      }
-      
-      mensagem += `Total: R$ ${total.toFixed(2)}\n`;
-      mensagem += `\nEndereço para entrega: ${endereco}`;
-      mensagem += `\nForma de Pagamento: ${formap}`;
-
-      const url = `https://wa.me/5511914042925?text=${encodeURIComponent(mensagem)}`;
-      window.open(url, "_blank");
-
-      localStorage.removeItem("carrinho");
-      cuponsAplicados = [];
-      localStorage.removeItem('cuponsAplicados');
-      document.getElementById('cupom-desconto').value = '';
-      document.getElementById('cupom-mensagem').classList.add('hidden');
-      fecharModalNome();
-      fecharCarrinho();
-      atualizarContador();
-    }
-
-    function mostrarToast() {
-      const toast = document.getElementById("toast");
-      toast.classList.add("show");
-      setTimeout(() => toast.classList.remove("show"), 2500);
-    }
+function verCarrinho() {
+  let carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+  listaCarrinho.innerHTML = "";
+  let subtotal = 0;
+  
+  carrinho.forEach((item, i) => {
+    subtotal += item.preco * item.qtd;
     
+    const observacaoId = `observacao-${i}`;
+    const temObservacao = item.observacao && item.observacao.trim() !== "";
+    
+    listaCarrinho.innerHTML += `
+      <li class="border-b pb-4">
+        <div class="flex justify-between items-start">
+          <div class="w-1/2">
+            <span class="font-medium">${item.nome}</span>
+            ${temObservacao ? `<div class="text-sm text-gray-600 mt-1">Obs: ${item.observacao}</div>` : ''}
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="alterarQtd(${i}, -1)" class="bg-gray-200 px-2 rounded">−</button>
+            <span>${item.qtd}</span>
+            <button onclick="alterarQtd(${i}, 1)" class="bg-gray-200 px-2 rounded">+</button>
+          </div>
+          <span class="w-20 text-right">R$ ${(item.preco * item.qtd).toFixed(2)}</span>
+          <button onclick="removerItem(${i})" class="text-red-500 ml-2 font-bold">×</button>
+        </div>
+        
+        <div class="mt-2">
+          <span class="observacao-toggle" onclick="toggleObservacao('${observacaoId}')">
+            ${temObservacao ? 'Editar observação' : 'Adicionar observação'}
+          </span>
+          <div id="${observacaoId}" class="observacao-input hidden">
+            <input type="text" 
+                   value="${item.observacao || ''}" 
+                   placeholder="Ex: sabor tropical, gelo maracuja, etc." 
+                   class="w-full p-2 border rounded text-sm"
+                   onchange="salvarObservacao(${i}, this.value)">
+          </div>
+        </div>
+      </li>
+    `;
+  });
+  
+  // Atualiza os valores com desconto
+  document.getElementById('subtotal-carrinho').textContent = "R$ " + subtotal.toFixed(2);
+  
+  const { descontoTotal } = calcularDescontos(subtotal);
+  const total = Math.max(0, subtotal - descontoTotal);
+  
+  if (descontoTotal > 0) {
+    document.getElementById('desconto-container').classList.remove('hidden');
+    document.getElementById('desconto-valor').textContent = "-R$ " + descontoTotal.toFixed(2);
+    document.getElementById('total-carrinho').textContent = "R$ " + total.toFixed(2);
+  } else {
+    document.getElementById('desconto-container').classList.add('hidden');
+    document.getElementById('total-carrinho').textContent = "R$ " + subtotal.toFixed(2);
+  }
+  
+  modalCarrinho.classList.remove("hidden");
+}
+
+function toggleObservacao(id) {
+  const element = document.getElementById(id);
+  element.classList.toggle("hidden");
+  if (!element.classList.contains("hidden")) {
+    element.querySelector("input").focus();
+  }
+}
+
+function salvarObservacao(index, observacao) {
+  let carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+  if (index >= 0 && index < carrinho.length) {
+    carrinho[index].observacao = observacao;
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    verCarrinho();
+  }
+}
+
+function alterarQtd(index, delta) {
+  let carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+  carrinho[index].qtd += delta;
+  if (carrinho[index].qtd <= 0) carrinho.splice(index, 1);
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  verCarrinho();
+  atualizarContador();
+}
+
+function removerItem(index) {
+  let carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+  carrinho.splice(index, 1);
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  verCarrinho();
+  atualizarContador();
+}
+
+function limparCarrinho() {
+  localStorage.removeItem("carrinho");
+  cuponsAplicados = [];
+  localStorage.removeItem('cuponsAplicados');
+  document.getElementById('cupom-desconto').value = '';
+  document.getElementById('cupom-mensagem').classList.add('hidden');
+  verCarrinho();
+  atualizarContador();
+}
+
+function fecharCarrinho() {
+  modalCarrinho.classList.add("hidden");
+}
+
+function abrirModalNome() {
+  modalNome.classList.remove("hidden");
+}
+
+function fecharModalNome() {
+  modalNome.classList.add("hidden");
+}
+
+function finalizarPedido() {
+  const nome = document.getElementById("nome-cliente").value.trim();
+  const endereco = document.getElementById("endereco-cliente").value.trim();
+  const formap = document.getElementById("forma-pagamento").value.trim();
+
+  if (!nome || !endereco || !formap) {
+    alert("Por favor, preencha seu nome, endereço e forma de pagamento.");
+    return;
+  }
+
+  const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+  const subtotal = carrinho.reduce((acc, item) => acc + item.preco * item.qtd, 0);
+  const { descontoTotal } = calcularDescontos(subtotal);
+  const total = Math.max(0, subtotal - descontoTotal);
+
+  let mensagem = `Olá! Meu nome é ${nome}, gostaria de fazer um pedido:\n\n`;
+
+  carrinho.forEach(item => {
+    mensagem += `- ${item.qtd}x ${item.nome} (R$ ${(item.preco * item.qtd).toFixed(2)})`;
+    if (item.observacao && item.observacao.trim() !== "") {
+      mensagem += ` - Obs: ${item.observacao}`;
+    }
+    mensagem += `\n`;
+  });
+
+  mensagem += `\nSubtotal: R$ ${subtotal.toFixed(2)}\n`;
+  
+  if (cuponsAplicados.length > 0) {
+    mensagem += `Desconto: -R$ ${descontoTotal.toFixed(2)}\n`;
+  }
+  
+  mensagem += `Total: R$ ${total.toFixed(2)}\n`;
+  mensagem += `\nEndereço para entrega: ${endereco}`;
+  mensagem += `\nForma de Pagamento: ${formap}`;
+
+  const url = `https://wa.me/5511914042925?text=${encodeURIComponent(mensagem)}`;
+  window.open(url, "_blank");
+
+  localStorage.removeItem("carrinho");
+  cuponsAplicados = [];
+  localStorage.removeItem('cuponsAplicados');
+  document.getElementById('cupom-desconto').value = '';
+  document.getElementById('cupom-mensagem').classList.add('hidden');
+  fecharModalNome();
+  fecharCarrinho();
+  atualizarContador();
+}
+
+function mostrarToast() {
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2500);
+}
   </script>
 </body>
 </html>
